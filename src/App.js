@@ -11,8 +11,8 @@ function App() {
         <Switch>
         <ProtectedRoute
           exact
-          path="/dashboard"
-          component={Dashboard}
+          path="/"
+          component={Landing}
         />
         </Switch>
       </Router>

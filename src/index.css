@@ -15,6 +15,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.welcome_page_cover {
+  background: url("./assets/covers/Banner.svg") no-repeat ;
+  height:1000px;
+  width:1500px;
+  width:100%;
+  
+}
+
+.landing_large_card{
+  
+  
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background-color:#FCE0A1 ;
+    width:50%;
+    border-radius:.8%;
+   opacity:80%;
+    margin-top:10%;
+    padding:5px;
+    z-index:0;
+    
+  
+}
+.landing_large_card :after{
+  content:'';
+  opacity:80%;
+}
+.client_card{
+    background-color:white;
+    opacity:100%;
+   padding:5%;
+    padding-bottom:2%;
+    display:flex;
+    width:40%;
+    flex-direction:column;
+    border-radius:3%;
+    position:relative;
+    z-index:1;
+    margin:5%;
+    
+}
+.client_card_selected{
+  background-color:white;
+  border:#8D611F 2px solid;
+  opacity:100%;
+  padding:5%;
+  padding-bottom:2%;
+  display:flex;
+  width:40%;
+  flex-direction:column;
+  border-radius:3%;
+  position:relative;
+  z-index:1;
+  margin:5%;
+ 
+}
+
 
 .dashboard_main {
   width: 100%;

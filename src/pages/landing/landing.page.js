@@ -19,18 +19,18 @@ function Landing() {
       
 
         <div class="flex w-full justify-center">
-          <div class="bg-[#FCE0A1] opacity-90 justify-center w-1/2 rounded-md p-3 border-gray-400 border-3 mt-10 flex flex-col">
+          <div class="landing_large_card ">
           
             <span class="opacity-100 flex  justify-center mt-10">
                 <img src={require("../../assets/logo_eatly 1.png")} alt="eatly"/>
             </span>
-            <div class="opacity-100 flex justify-around p-3  ">
+            <div class="opacity-100 flex justify-around p-5  ">
              { customer?
-                <div class="bg-white p-5 rounded-md border-[#8D611F] border-2 flex flex-col opacity-100 pl-8 pr-8">
+                <div class="client_card_selected">
                 <div class="flex justify-end">
                       {
                         customer?
-                        <button class="rounded-xl p-2 bg-green-600" onClick={()=>{
+                        <button class="rounded-xl p-2 bg-[#8D611F]" onClick={()=>{
                           setCustomer(false)
                         }}>
                         </button>
@@ -50,11 +50,11 @@ function Landing() {
                     </div>
                 </div>
              :
-             <div class="bg-white p-5 rounded-md flex flex-col opacity-100 pl-8 pr-8">
+             <div class="client_card">
               <div class="flex justify-end">
                     {
                       customer?
-                      <button class="rounded-xl p-2 bg-green-600" onClick={()=>{
+                      <button class="rounded-xl p-2 bg-[#8D611F]" onClick={()=>{
                         setCustomer(false)
                       }}>
                       </button>
@@ -75,11 +75,11 @@ function Landing() {
               </div>
           }
           {merchant?
-              <div class="bg-white p-5 rounded-md border-[#8D611F] border-2 flex flex-col pr-8 pl-8">
+              <div class="client_card_selected">
                <div class="flex justify-end">
                  {
                    merchant?
-                   <button class="rounded-xl p-2 bg-green-600 " onClick={()=>{
+                   <button class="rounded-xl p-2  bg-[#8D611F] " onClick={()=>{
                      setMerchant(false)
                    }}>
                    </button>
@@ -98,11 +98,11 @@ function Landing() {
                </div>
            </div>
             :
-              <div class="bg-white p-5 rounded-md flex flex-col pr-8 pl-8">
+              <div class="client_card">
                   <div class="flex justify-end">
                     {
                       merchant?
-                      <button class="rounded-xl p-2 bg-green-600 " onClick={()=>{
+                      <button class="rounded-xl p-2  bg-[#8D611F]" onClick={()=>{
                         setMerchant(false)
                       }}>
                       </button>
