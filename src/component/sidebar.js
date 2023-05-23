@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { /*useEffect*/ useState } from "react";
 import logo from '../assets/logo_eatly1.svg'
 import logout from '../assets/exit.svg';
 import home from '../assets/home.svg';
