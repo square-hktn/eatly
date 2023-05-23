@@ -11,7 +11,7 @@
     "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -41,5 +41,8 @@
   },
   "keywords": [],
   "author": "Gideon Odiase | Michelle Badu | Paul Chibueze",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
 }
