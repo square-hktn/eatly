@@ -54,7 +54,7 @@ function AddressModal() {
       </div>
       
     </div>
-    <div class="flex w-full mt-15 justify-arounded">
+    <div class="flex w-full mt-15 justify-between p-5">
         <button class="w-1/3 rounded-lg  text-[#99592A] border-[#99592A] border-2 p-3">
           <p class="text-[#99592A] text-center">Back</p>
         </button>
