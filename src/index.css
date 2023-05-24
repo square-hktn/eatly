@@ -73,6 +73,29 @@ code {
  
 }
 
+.confirmation_sidebar_wrapper {
+  width: 50%;
+  height: 100%;
+  background: #FFF5EE;
+  margin-right:0px;
+  margin-left:5%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding:3%;
+}
+
+
+.confirmation_sider_additions {
+  border-radius: 50px 50px 50px 50px;
+  border-radius:5%;
+  margin-top:2px;
+  display:flex;
+  width:100%;
+  border:#989795 2 solid;
+  padding:2px;
+}
+
 
 .dashboard_main {
   width: 100%;
