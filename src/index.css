@@ -109,6 +109,13 @@ p.line_text span {
    padding:0 10px; 
 }
 
+.square_container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
+
 
 .dashboard_main {
   width: 100%;
