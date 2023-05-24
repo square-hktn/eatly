@@ -96,6 +96,19 @@ code {
   padding:2px;
 }
 
+p.line_text {
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+} 
+
+p.line_text span { 
+   background:#FFF5EE; 
+   padding:0 10px; 
+}
+
 
 .dashboard_main {
   width: 100%;

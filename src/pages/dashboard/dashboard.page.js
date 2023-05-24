@@ -1,6 +1,6 @@
 import React from "react";
 import ConfirmationModal from "../../component/ConfirmationModal";
-import {}
+import AddressModal from "../../component/AddressModal";
 import Sidebar from "../../component/sidebar";
 
 const Dashboard = (props) => {
@@ -12,7 +12,8 @@ const Dashboard = (props) => {
       
        
         
-          <ConfirmationModal/>
+          
+          <AddressModal/>
        
 
         
