@@ -6,7 +6,7 @@ function SquarePayment() {
 
   
   return (
-    <div class="square_container">
+   
        <PaymentForm
            applicationId="sandbox-sq0idb-BWmfsduo0mrV0WEUMe8h6A"
             cardTokenizeResponseReceived={(token, verifiedBuyer) => {
@@ -14,8 +14,9 @@ function SquarePayment() {
             console.log('verifiedBuyer:', verifiedBuyer);
               }}
               locationId='XXXXXXXXXX' >
+               <p class="text-xl">HELLO</p> 
   </PaymentForm>
-    </div>
+ 
  
   )
 }
