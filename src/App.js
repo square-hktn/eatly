@@ -11,7 +11,7 @@ function App() {
           <ProtectedRoute exact path="/" component={Dashboard} />
         </Switch>
         <Switch>
-          <ProtectedRoute exact path="/login" component={LoginPage} />
+          <ProtectedRoute exact path="/signin" component={LoginPage} />
         </Switch>
         <Switch>
           <ProtectedRoute exact path="/signup" component={SignupPage} />

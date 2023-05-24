@@ -1,53 +1,58 @@
 import React from "react";
-import "./Login.scss";
+import styles from "./Login.module.scss";
 import logo from "../../../assets/logo_eatly1.svg";
 import login_image from "../../../assets/Group 34515.png";
 import { Link } from "react-router-dom";
 
 const Login = (props) => {
   return (
-    <section className="login_container">
-      <div className="big_container">
-        <div className="left_Container">
-          <div className="logo_container">
+    <section className={styles.sigin_container}>
+      <div className={styles.big_container}>
+        <div className={styles.left_container}>
+          <div className={styles.logo_container}>
             <img src={logo} alt="logo" />
           </div>
-          <h1 className="title">Sign In</h1>
-          <form className="form">
-            <div className="form_group">
-              <label className="label_field">Resturant</label>
-              <select className="select_field">
+          <h1 className={styles.title}>Sign In</h1>
+          <form className={styles.form}>
+            <div className={styles.form_group}>
+              <label className={styles.label_field}>Resturant</label>
+              <select className={styles.select_field}>
                 <option>Select a Resturant</option>
               </select>
             </div>
-            <div className="form_group">
-              <label className="label_field">Email</label>
-              <input type="email" className="input_field" />
+            <div className={styles.form_group}>
+              <label className={styles.label_field}>Email</label>
+              <input type="email" className={styles.input_field} />
             </div>
             <div className="form_group">
-              <label className="label_field">Password</label>
-              <input type="password" className="input_field" />
+              <label className={styles.label_field}>Password</label>
+              <input type="password" className={styles.input_field} />
             </div>
-            <div className="bottom_container">
-              <div className="form_group">
-                <input type="checkbox" className="checkbox_field" />
-                <label className="label_field">Remember me?</label>
+            <div className={styles.bottom_container}>
+              <div className={styles.form_group}>
+                <input type="checkbox" className={styles.checkbox_field} />
+                <label className={styles.label_field}>Remember me?</label>
               </div>
               <div>
-                <Link className="password_text">Forget Password</Link>
+                <Link className={styles.password_text}>Forget Password</Link>
               </div>
             </div>
-            <button className="btn">Sign in</button>
+            <div className={styles.btn_container}>
+              <button className={styles.btn}>Sign in</button>
+            </div>
           </form>
-          <h3 className="subtext">
+          <h3 className={styles.subtext}>
             Don't have an account?{" "}
-            <Link to="/signup" className="link">
+            <Link to="/signup" className={styles.link}>
               Click here to sign up
             </Link>
           </h3>
         </div>
-        <div className="right_container">
-          <img src={login_image} alt="login_image" className="image" />
+        <div
+          className={styles.right_container}
+          
+        >
+          <img src={login_image} alt="login_image" className={styles.image} />
         </div>
       </div>
     </section>
