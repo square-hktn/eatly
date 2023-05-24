@@ -42,5 +42,8 @@
   },
   "keywords": [],
   "author": "Gideon Odiase | Michelle Badu | Paul Chibueze",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
 }

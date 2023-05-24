@@ -1,8 +1,155 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.welcome_page_cover {
+  background: url("./assets/covers/Banner.svg") no-repeat ;
+  height:100%;
+  width:100%;
+  
+  
+}
+
+.landing_large_card{
+  
+  
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background-color:#FCE0A1 ;
+    width:50%;
+    border-radius:.8%;
+   opacity:80%;
+    margin-top:10%;
+    padding:5px;
+    z-index:0;
+    
+  
+}
+.landing_large_card :after{
+  content:'';
+  opacity:80%;
+}
+.client_card{
+    background-color:white;
+    opacity:100%;
+   padding:5%;
+    padding-bottom:2%;
+    display:flex;
+    width:40%;
+    flex-direction:column;
+    border-radius:3%;
+    position:relative;
+    z-index:1;
+    margin:5%;
+    
+}
+.client_card_selected{
+  background-color:white;
+  border:#8D611F 2px solid;
+  opacity:100%;
+  padding:5%;
+  padding-bottom:2%;
+  display:flex;
+  width:40%;
+  flex-direction:column;
+  border-radius:3%;
+  position:relative;
+  z-index:1;
+  margin:5%;
+ 
+}
+
+.confirmation_sidebar_wrapper {
+  width: 40%;
+  height: 100%;
+  background: #FFF5EE;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding:2%;
+  background: #FFF5EE;
+  border-radius: 20px;
+  
+ 
+}
+
+.confirmation-modal-promo-code-input{
+  border-radius:20px;
+  border:#99592A 1px solid;
+  padding:10px;
+  display:flex;
+  width:65%;
+  margin-right:20px;
+}
+.confirmation-modal-promo-button{
+  background-color:#99592A;
+  border-radius:20px;
+  display:flex;
+  width:20%;
+  justify-content: center;
+  padding:5px;
+}
+
+.confirmation-modal-next-button{
+  margin-top:45px;
+  background-color:#99592A;
+  border-radius:20px;
+  display:flex;
+  width:50%;
+  content:center;
+  padding:10px;
+  justify-content: center;
+}
+.mealcard-input{
+  border-radius:20px;
+  border:#a5a29e 1px solid;
+  padding:10px;
+  display:flex;
+  width:85%;
+}
+
+.confirmation_sider_additions {
+  border-radius: 50px 50px 50px 50px;
+  border-radius:5%;
+  margin-top:2px;
+  display:flex;
+  width:100%;
+  border:#989795 2 solid;
+  padding:2px;
+}
+
+p.line_text {
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+} 
+
+p.line_text span { 
+   background:#FFF5EE; 
+   padding:0 10px; 
+}
+
+.square_container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
 }
 
 
@@ -15,7 +162,7 @@ body {
 .sidebar_wrapper {
   width: 10%;
   height: 100%;
-  background: #fff5ee;
+  background: #FFF5EE;
   border-radius: 50px 0 0 50px;
   position: fixed;
   display: flex;
@@ -27,8 +174,7 @@ body {
   height: 100px;
   display: flex;
 }
-.sidebar_logo_image,
-.sidebar_logo_image_logout {
+.sidebar_logo_image, .sidebar_logo_image_logout {
   margin: auto;
 }
 .sidebar_icons {
@@ -40,11 +186,10 @@ body {
   padding-top: 100%;
   cursor: pointer;
 }
-.sidebar_logo_circle_active,
-.sidebar_logo_circle {
+.sidebar_logo_circle_active, .sidebar_logo_circle {
   height: 50px;
   width: 50px;
-  background: #99592a;
+  background: #99592A;
   border-radius: 50%;
   margin: auto;
   align-items: center;
@@ -53,9 +198,4 @@ body {
 }
 .sidebar_logo_circle {
   background: white;
-}
-
-.login_container {
-  background: rgba(255, 245, 238, 1);
-  width: 100vw;
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import Sidebar from "../../component/sidebar";
 
+import ConfirmationModal from "../../component/ConfirmationModal";
 const Dashboard = (props) => {
   return (
       <div className="dashboard_main">
-        <Sidebar/>
+        
+        <div class="ml-5"><ConfirmationModal /></div>
       </div>
   );
 };
