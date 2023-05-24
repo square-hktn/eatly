@@ -21,10 +21,8 @@
 
     .left_container {
       width: 500px;
-      // background: blue;
       @media only screen and (min-width: 320px) and (max-width: 600px) {
         width: 100%;
-        //padding: 2rem;
       }
     }
 
@@ -119,7 +117,6 @@
       .bottom_container {
         display: flex;
         align-items: center;
-        //  justify-content: space-between;
         column-gap: 8rem;
       }
 
@@ -203,7 +200,6 @@
     }
     .right_container {
       width: 500px;
-      //background: red;
       display: flex;
       flex-direction: column;
       margin-top: 3.5rem;
