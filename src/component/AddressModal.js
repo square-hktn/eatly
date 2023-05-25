@@ -46,14 +46,14 @@ function AddressModal() {
   </div>
   
 </div>
-<div class="address-modal-button-container w-4/5 ">
+<div class="address-modal-button-container w-5/6 ">
 <div class="flex w-full justify-between  bottom-0">
-    <div class=" w-3/5 m-2">
+    <div class=" w-3/5 ml-2">
     <button class="address-modal-back-button">
       <p class="text-[#99592A] text-center font-semibold">Back</p>
     </button>
    </div>
-    <div class="w-full m-2 mb-10">
+    <div class="w-full ml-2 mb-10">
       <button class="address-modal-payment-button">
         <p class="text-white text-center font-semibold">Continue to Payment</p>
       </button>
