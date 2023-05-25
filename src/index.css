@@ -146,15 +146,34 @@ p.line_text span {
    padding:0 10px; 
 }
 
-.square_container {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  height: 100vh;
+.address-modal-button-container{
+  position:absolute;
+  bottom:0px;
+}
+.address-modal-back-button{
+  border:#99592A 1px solid;
+  padding:10px;
+  border-radius:20px;
+  width:100%;
 
-  font-family: "Poppins", sans-serif;
-  overflow-y:hidden;
+}
+.address-modal-payment-button{
+  background-color:#99592A ;
+  padding:10px;
+  border-radius:20px;
+  width:100%;
+}
 
+.address-modal-input{
+  border-radius:20px;
+  padding:10px;
+  border: black solid 1px;
+}
+.address-modal-input-small{
+  border-radius:20px;
+  padding:10px;
+  border: black solid 1px;
+  margin:2px;
 }
 
 
