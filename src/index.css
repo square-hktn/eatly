@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -150,6 +151,10 @@ p.line_text span {
   justify-content: center;
   align-content: center;
   height: 100vh;
+
+  font-family: "Poppins", sans-serif;
+  overflow-y:hidden;
+
 }
 
 
