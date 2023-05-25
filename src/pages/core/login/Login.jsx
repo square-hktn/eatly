@@ -2,9 +2,18 @@ import React from "react";
 import styles from "./Login.module.scss";
 import logo from "../../../assets/logo_eatly1.svg";
 import login_image from "../../../assets/Group 34515.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 
 const Login = (props) => {
+  const { search } = useLocation();
+  const role = search?.split('?')[1];
+  let history = useHistory();
+
+  if(role != 'merchant' && role != 'customer') {
+    window.alert('invalid role');
+    return history.push(`/`);
+  }
+
   return (
     <section className={styles.sigin_container}>
       <div className={styles.big_container}>
@@ -14,12 +23,6 @@ const Login = (props) => {
           </div>
           <h1 className={styles.title}>Sign In</h1>
           <form className={styles.form}>
-            <div className={styles.form_group}>
-              <label className={styles.label_field}>Resturant</label>
-              <select className={styles.select_field}>
-                <option>Select a Resturant</option>
-              </select>
-            </div>
             <div className={styles.form_group}>
               <label className={styles.label_field}>Email</label>
               <input type="email" className={styles.input_field} />
@@ -34,7 +37,7 @@ const Login = (props) => {
                 <label className={styles.label_field}>Remember me?</label>
               </div>
               <div>
-                <Link className={styles.password_text}>Forget Password</Link>
+                <Link to="/#" className={styles.password_text}>Forget Password</Link>
               </div>
             </div>
             <div className={styles.btn_container}>
