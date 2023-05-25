@@ -4,6 +4,7 @@ import Dashboard from "./pages/dashboard/dashboard.page";
 import ProtectedRoute from "./helpers/protectedRoute";
 import LoginPage from "./pages/core/login/Login";
 import SignupPage from "./pages/core/signup/Signup";
+
 function App() {
   return (
     <div className="App">
