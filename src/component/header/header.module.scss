@@ -1,0 +1,48 @@
+.headerWrapper {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;justify-content: space-between;
+}
+.headerText {
+  display: flex;
+  flex-flow: column;
+}
+.inputSection {
+  width: 25%;
+  height: 50px;
+  border: 1px solid #989795;
+  margin-top: 4%;
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.searchBar {
+  width: 95%;
+  margin: 5px;
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+
+  &::placeholder {
+    padding-left: 10px;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+  }
+}
+.searchIcon {
+  width: 10px;
+  margin-left: 8px;
+}
+h2, span {
+  font-family: Poppins;
+  color: #1A1817;
+}
+h2 {
+  margin-top: 20px;
+  font-weight: 500;
+}
+span {
+  margin-top: -20px;
+}
