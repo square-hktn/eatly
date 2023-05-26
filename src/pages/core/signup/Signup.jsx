@@ -2,10 +2,19 @@ import { useState, useEffect } from "react";
 import "./Signup.scss";
 import logo from "../../../assets/logo_eatly1.svg";
 import login_image from "../../../assets/Group 34515.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const Signup = (props) => {
+  const navigate = useHistory();
+
   const [formValues, setFormValues] = useState({
-    
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_number: "",
+    password: "",
+    city: "",
+    role: "",
+    restaurantName: "",
   });
   const [touched, setTouched] = useState({});
   //error
@@ -25,7 +34,7 @@ const Signup = (props) => {
     const errors = {};
     const regex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const passwordregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    // const passwordregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
     if (!values.first_name) {
       errors.first_name = "First Name is required";
@@ -44,15 +53,15 @@ const Signup = (props) => {
 
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (!passwordregex.test(values.password)) {
-      errors.password =
-        "incorrect password, it must contain letters, number and special characters";
-    }
+    } //else if (!passwordregex.test(values.password)) {
+    // errors.password =
+    // ("incorrect password, it must contain letters, number and special characters");
+    // }
     if (!values.city) {
       errors.city = "Please enter your city";
     }
 
-    if (!values.restaurantName) {
+    if (!values.restaurantName && values.role === "Merchant") {
       errors.restaurantName = "Please enter your resturant Name";
     }
 
@@ -97,17 +106,21 @@ const Signup = (props) => {
         restaurantName: false,
       });
 
-      const userData = {
+      let userData = {
         name: `${formValues.first_name} ${formValues.last_name}`,
         email: formValues.email,
         password: formValues.password,
         phoneNumber: formValues.phone_number,
         role: formValues.role,
-        restaurantName:
-          formValues.role === "merchant" ? formValues.restaurantName : "",
+
         //FIXME: Add city to user creation data
         //   city: formValues.city,
       };
+
+      if (formValues.role === "merchant") {
+        userData.restaurantName = formValues.restaurantName;
+      }
+
       fetch("https://eatly-api.onrender.com/user", {
         method: "POST",
         headers: {
@@ -118,13 +131,15 @@ const Signup = (props) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data?.success === "true") {
-            alert("success");
+          console.log(data);
+          if (data.status === "success") {
+            navigate.push("/dashboard");
+            alert("New user is created");
             setFormValues({});
             setFormError({});
             e.target.reset();
           } else {
-            alert("failure");
+            alert(data.message || data.json.details[0].message);
           }
         })
         .catch((error) => console.log(error));
@@ -152,9 +167,12 @@ const Signup = (props) => {
                   onChange={handleChange}
                   name="role"
                   className="select_field"
+                  style={{
+                    width: formValues.role === "merchant" ? "250px" : "500px",
+                  }}
                 >
-                                  <option value="">select an a role</option>
-                  
+                  <option value="">select an a role</option>
+
                   <option value="user">Customer</option>
                   <option value="merchant">Merchant</option>
                 </select>
@@ -268,19 +286,19 @@ const Signup = (props) => {
             <div className="bottom_container">
               <div>
                 <input type="checkbox" className="checkbox_field" />
-                <label className="label_field">
+                <label className="label_field" style={{ marginLeft: "0.5rem" }}>
                   I agree with the terms of use
                 </label>
               </div>
             </div>
             <div className="btn_container">
-              <button className="btn">Sign in</button>
+              <button className="btn">Sign Up</button>
             </div>
           </form>
           <h3 className="subtext">
             Already have an Account{" "}
             <Link to="/signin" className="link">
-              Sign in
+              Sign In
             </Link>
           </h3>
         </div>
