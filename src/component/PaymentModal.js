@@ -17,7 +17,7 @@ function PaymentModal() {
             <p class="font-bold text-xl">x</p>
           </div>
        </div>
-       <p class="text-md font-semibold text-[#99592A]">Italian Place | Order #12345</p>
+       <p class="text-md font-semibold text-[#99592A]">Order #12345</p>
       </div>
 
       <div class="flex w-full justify-start mt-10">
