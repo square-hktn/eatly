@@ -19,7 +19,6 @@ function AddressModal() {
 <div class="flex w-full justify-start mt-5">
    <p class="font-bold text-start mb-3">Where do we deliver?</p>
 </div>
-
 <div class="flex flex-col w-full border-t-2 border-gray-400">
   <div class="flex flex-col w-full mt-6">
     <p class="mb-3">House no./Apartment/Street</p>
@@ -44,7 +43,6 @@ function AddressModal() {
       
       </div>
   </div>
-  
 </div>
 <div class="address-modal-button-container w-5/6 ">
 <div class="flex w-full justify-between  bottom-0">
@@ -60,10 +58,6 @@ function AddressModal() {
      </div>
 </div>
 </div>
-
-
-
-
 </div>
 
   )
