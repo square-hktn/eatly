@@ -33,7 +33,7 @@ code {
     background-color:#FCE0A1 ;
     width:50%;
     border-radius:.8%;
-   opacity:80%;
+    opacity:80%;
     margin-top:10%;
     padding:5px;
     z-index:0;
@@ -162,7 +162,9 @@ p.line_text span {
   padding:10px;
   border-radius:20px;
   width:100%;
+  overflow:auto;
 }
+
 
 .address-modal-input{
   border-radius:20px;
