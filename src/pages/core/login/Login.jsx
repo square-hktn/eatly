@@ -9,7 +9,7 @@ const Login = (props) => {
   const role = search?.split('?')[1];
   let history = useHistory();
 
-  if(role != 'merchant' && role != 'customer') {
+  if(role !== 'merchant' && role !== 'customer') {
     window.alert('invalid role');
     return history.push(`/`);
   }
@@ -32,7 +32,7 @@ const Login = (props) => {
               <input type="password" className={styles.input_field} />
             </div>
             <div className={styles.bottom_container}>
-              <div className={styles.form_group}>
+              <div className={styles.checkbox_container}>
                 <input type="checkbox" className={styles.checkbox_field} />
                 <label className={styles.label_field}>Remember me?</label>
               </div>

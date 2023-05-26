@@ -13,7 +13,7 @@ const [selectedRestaurant, setSelectedRestaurant] = useState(restaurants[0]);
             Array.isArray(restaurants) && restaurants.map((info, key) => (
               <div className={styles.restaurantSection} key={key} onClick={() => setSelectedRestaurant(info)}>
                 <span className={styles.restaurantName}>{info}</span>
-                <div className={(selectedRestaurant == info) ? styles.active : ''}></div>
+                <div className={(selectedRestaurant === info) ? styles.active : ''}></div>
               </div>
             ))
           }
