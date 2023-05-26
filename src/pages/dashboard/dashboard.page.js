@@ -5,8 +5,8 @@ import styles from './dashboard.module.scss';
 import cartIcon from '../../assets/cart-icon.svg';
 import locationIcon from '../../assets/Location.svg';
 
-import ConfirmationModal from "../../component/ConfirmationModal";
-import AddressModal from '../../component/AddressModal'
+//import ConfirmationModal from "../../component/ConfirmationModal";
+//import AddressModal from '../../component/AddressModal'
 
 const Dashboard = (props) => {
   return (

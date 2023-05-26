@@ -45,6 +45,9 @@
       margin-top: 0.5rem;
       letter-spacing: 0.02em;
       color: #1a1817;
+            @media only screen and (min-width: 320px) and (max-width: 600px) {
+        font-size: 35px;
+      }
     }
   }
 
@@ -67,6 +70,35 @@
     /* identical to box height, or 28px */
     letter-spacing: 0.02em;
     color: #989795;
+  }
+  .select_field {
+    box-sizing: border-box;
+    /* Auto layout */
+    display: block;
+    padding: 8px 16px;
+    width: 436px;
+    background: transparent;
+    height: 37px;
+    border: 1px solid #99592a;
+    border-radius: 24px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    outline: none;
+    /* identical to box height, or 21px */
+    color: #989795;
+    &:active,
+    &:hover {
+      border: 1px solid #2a160c;
+    }
+    &:disabled {
+      border: 1px solid #989795;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1100px) {
+      width: 300px;
+    }
   }
 
   .input_field {
@@ -93,6 +125,10 @@
     }
   }
 
+  .errorMsg {
+    font-size: 13px;
+    color: red;
+  }
   .bottom_container {
     display: flex;
     align-items: center;
@@ -108,7 +144,6 @@
     background: #ffffff;
     border: 1px solid #989795;
     border-radius: 2px;
-    display: inline;
   }
 
   .btn_container {
@@ -159,6 +194,7 @@
     /* identical to box height, or 28px */
     letter-spacing: 0.02em;
     color: #1a1817;
+    padding: 1rem 0rem;
     .link {
       color: rgba(153, 89, 42, 1);
       text-decoration: none;
@@ -173,6 +209,10 @@
     padding: 1rem;
     @media only screen and (min-width: 320px) and (max-width: 600px) {
       width: 100%;
+      margin-top: 0rem;
+      padding: 0rem;
+      align-items: center;
+      justify-content: center;
     }
     .image {
       width: 100%;
