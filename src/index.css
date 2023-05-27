@@ -176,6 +176,19 @@ p.line_text span {
   margin:2px;
 }
 
+.profile_main{
+  display:flex;
+  width:100%;
+}
+
+.most-ordered-container{
+  background-color: #FFF5EE;
+  display:flex;
+  border-radius:20px;
+  flex-direction: column;
+  margin:2%;
+  padding:2%;
+}
 
 .dashboard_main {
   width: 100%;
