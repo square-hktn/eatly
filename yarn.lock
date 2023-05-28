@@ -29,6 +29,131 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
+"@apimatic/authentication-adapters@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/authentication-adapters/-/authentication-adapters-0.3.0.tgz#f5b57d47dd9db99a2fb1f58643eb827c79486e06"
+  integrity sha512-w12eNiaF6Tw9CPQPLIZrZOKMBx0OzQ5X1yNK/Ii1M0FuTvGFRBX0C+g88n9U00BLnYWJLNSWpRtCVlWgLx40gA==
+  dependencies:
+    "@apimatic/core-interfaces" "^0.2.0"
+    "@apimatic/http-headers" "^0.2.0"
+    "@apimatic/http-query" "^0.2.0"
+    tslib "^2.1.0"
+
+"@apimatic/axios-client-adapter@^0.2.0":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@apimatic/axios-client-adapter/-/axios-client-adapter-0.2.1.tgz#27544bd833c8052fd0c2ef3e90dcb85e8edcb04d"
+  integrity sha512-+FjVutiWuGsql10BtOReL2BjsFyeUiO+80uj9MIsDf/WH3DLPXOjYB4KKQQrJOhgPIm/b9vEKPFC1sZQGgH0pw==
+  dependencies:
+    "@apimatic/convert-to-stream" "^0.1.0"
+    "@apimatic/core-interfaces" "^0.2.0"
+    "@apimatic/file-wrapper" "^0.3.0"
+    "@apimatic/http-headers" "^0.3.0"
+    "@apimatic/http-query" "^0.3.0"
+    "@apimatic/json-bigint" "^1.2.0"
+    "@apimatic/schema" "^0.7.0"
+    axios "^0.21.1"
+    detect-browser "^5.3.0"
+    detect-node "^2.0.4"
+    form-data "^3.0.0"
+    lodash.flatmap "^4.5.0"
+    tiny-warning "^1.0.3"
+    tslib "^2.1.0"
+
+"@apimatic/convert-to-stream@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@apimatic/convert-to-stream/-/convert-to-stream-0.0.2.tgz#7d9942071291011c4576de97619d974face8acaa"
+  integrity sha512-1DRg17ItExfMYsXwjt6WIjJSCgV5RGg3fHPLgYD44/YmiU+7suWj7YfPKKUqmNcnJ/AvMh4lG1+tHrfOT01zXw==
+
+"@apimatic/convert-to-stream@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/convert-to-stream/-/convert-to-stream-0.1.0.tgz#de07f6afcc3dc50d71ffaeaf6358de7426db0864"
+  integrity sha512-yVwPBnUhFD0X+veZ9KaVXBv/9svSB41GOp51Y5W+tMM316fXFQRC8jlc3XONRabQ2QWfwCz7iLtdABL41VXRcA==
+
+"@apimatic/core-interfaces@^0.2.0":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@apimatic/core-interfaces/-/core-interfaces-0.2.1.tgz#10414c56503d7f813189363d3bcd45371a786d50"
+  integrity sha512-jhPY/3Dy2jtGn/hsrR1Up+HcBX3V243Ngi6/jIF1DFbM1Yq/Ecv8ZKS5kV+AIJEEZDdqaOgZdFNjmEnDTg82GQ==
+  dependencies:
+    "@apimatic/file-wrapper" "^0.3.0"
+    tslib "^2.1.0"
+
+"@apimatic/core@^0.10.0":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@apimatic/core/-/core-0.10.1.tgz#4c7e79d48a0f1f863c0ab9b64dda56f1677ae0bb"
+  integrity sha512-Tx69q/0k094O1sHOlHataRud4Uqq39t+pQa/dkYwKPepz2NiczxzZ7EeGjfvq6SSxAouAWw3cNW2Pg2vWgYwIA==
+  dependencies:
+    "@apimatic/convert-to-stream" "^0.0.2"
+    "@apimatic/core-interfaces" "^0.2.0"
+    "@apimatic/file-wrapper" "^0.3.0"
+    "@apimatic/http-headers" "^0.3.0"
+    "@apimatic/http-query" "^0.3.0"
+    "@apimatic/json-bigint" "^1.2.0"
+    "@apimatic/schema" "^0.7.0"
+    axios "^0.21.1"
+    detect-browser "^5.3.0"
+    detect-node "^2.0.4"
+    form-data "^3.0.0"
+    json-ptr "^3.1.0"
+    lodash.flatmap "^4.5.0"
+    tiny-warning "^1.0.3"
+    tslib "^2.1.0"
+
+"@apimatic/file-wrapper@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/file-wrapper/-/file-wrapper-0.2.0.tgz#da84320541d7504ebb6d0ff09535264d027546ae"
+  integrity sha512-iY7bqbQYZVcf/8ja9fr5s72ZAWNBD0+oaE40MsToFExO5ohUD88JE2UMUaYBYjmXUAq8EOMHHQBMWnVe2q4EFw==
+  dependencies:
+    tslib "^2.1.0"
+
+"@apimatic/file-wrapper@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/file-wrapper/-/file-wrapper-0.3.0.tgz#3bbbbbf23cb5135bbeecad924d67b033a81e0cd6"
+  integrity sha512-WBzAJQlEeZ0SjgA+j4OdRgnT6Lmi/d1HjLW8y+iR6WZiUBy43qFBsfsMugNhNuDwTznM53VNPRVptf7l31WE3w==
+  dependencies:
+    tslib "^2.1.0"
+
+"@apimatic/http-headers@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/http-headers/-/http-headers-0.2.0.tgz#b35c037546b1d556006fe88ba500a8dac5dc4156"
+  integrity sha512-mg9NVTrA1NYWbiI7EAHfaIa8eqmR4XvZVbZcMVF3dk9yd1dZaGCyWLb01SQw0JtMBb7eN48ZvzmdHj42IRdFsQ==
+  dependencies:
+    tslib "^2.1.0"
+
+"@apimatic/http-headers@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/http-headers/-/http-headers-0.3.0.tgz#c486a8ca0976a00ffc83e23c3a403cc0c8c9a4c1"
+  integrity sha512-1y3CJoyB0LYPMw6hlyzQlr/umucRALwfSTmVJcsNBnejQRE4R2EnYNGEpWDPD9RYbiFf/ERiF2txZ1A3BAZAXw==
+  dependencies:
+    tslib "^2.1.0"
+
+"@apimatic/http-query@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/http-query/-/http-query-0.2.0.tgz#845e745f57c9a14bb51962285ab22017fb8ec5c5"
+  integrity sha512-FRToSqRBrLeKor6p/Sp0GcKgFKvT9pscWCvplsJ60EzdrJ9Krto4R1bugAyDNZ/kgg11Ps/HpKYtN1vI0aLkTw==
+  dependencies:
+    "@apimatic/file-wrapper" "^0.2.0"
+    tslib "^2.1.0"
+
+"@apimatic/http-query@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/http-query/-/http-query-0.3.0.tgz#c8fed874c9946424d8e0777b0d680f0391bf302e"
+  integrity sha512-goznpIQ8tTRFt9sgFD3YqZfu3DtoPulqIkjXVpoZeqn6MWR2jQHrswwCYrS5fivVurnUrM3+iE+ZHivReqCMpg==
+  dependencies:
+    "@apimatic/file-wrapper" "^0.3.0"
+    tslib "^2.1.0"
+
+"@apimatic/json-bigint@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@apimatic/json-bigint/-/json-bigint-1.2.0.tgz#05223455ec135976fe7a55456c2d21a3bbde56d8"
+  integrity sha512-+bmVzYMdZu0Ya5L+my4FXFUih54OvQA/qlZsFOYdOoostyUuB27UDrVWQs/WVCmS0ADdo5vTU0eeTrrBkHoySw==
+
+"@apimatic/schema@^0.7.0":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@apimatic/schema/-/schema-0.7.1.tgz#5e24e0fb9f5329a918e582d2e84aaa97d50f2e2a"
+  integrity sha512-jGGuTdenYjekGm9Fu7yrAYPDT6LePFuBw59QEnwQu+ukSxB5dW5RS2hd+6S3HkR9xpIz/OGI0R7zxrNLDlnDVA==
+  dependencies:
+    tslib "^2.1.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.16.0", "@babel/code-frame@^7.18.6", "@babel/code-frame@^7.21.4", "@babel/code-frame@^7.8.3":
   version "7.21.4"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.21.4.tgz"
@@ -1657,6 +1782,25 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@square/web-payments-sdk-types@^1.1.1":
+  version "1.49.0"
+  resolved "https://registry.yarnpkg.com/@square/web-payments-sdk-types/-/web-payments-sdk-types-1.49.0.tgz#eada41a2a14cd24b684f13b84c4ef1cee4235d21"
+  integrity sha512-qysKtxn2IRe347SPHXGFzW6BDNY/O90dxenTtzYIA+ptdiFVGKZKzh1JRBXGlTbNAbPPoENBknYQEwgKjSvPxg==
+  dependencies:
+    typescript "^4.9.5"
+
+"@square/web-sdk@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@square/web-sdk/-/web-sdk-2.0.1.tgz#ef01fa6955ff0134a2aaf6e2227e9e96bb7e66a7"
+  integrity sha512-m+pauPLJUHO4qzBNKlHRMe+qDAhQdbEd7g/v/SW8BWZARwJC0liHB4AnVAJuM/7JMFEPiT2ZO3SRt1VQsCeoYg==
+  dependencies:
+    "@square/web-payments-sdk-types" "^1.1.1"
+
+"@stitches/react@^1.2.8":
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.8.tgz#954f8008be8d9c65c4e58efa0937f32388ce3a38"
+  integrity sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==
+
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
   resolved "https://registry.npmjs.org/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-2.2.3.tgz"
@@ -2004,6 +2148,11 @@
   version "20.1.7"
   resolved "https://registry.npmjs.org/@types/node/-/node-20.1.7.tgz"
   integrity sha512-WCuw/o4GSwDGMoonES8rcvwsig77dGCMbZDrZr2x4ZZiNW4P/gcoZXe/0twgtobcTkmg9TuKflxYL/DuwDyJzg==
+
+"@types/node@^14.14.30":
+  version "14.18.48"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.48.tgz#ee5c7ac6e38fd2a9e6885f15c003464cf2da343c"
+  integrity sha512-iL0PIMwejpmuVHgfibHpfDwOdsbmB50wr21X71VnF5d7SsBF7WK+ZvP/SCcFm7Iwb9iiYSap9rlrdhToNAWdxg==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2673,6 +2822,13 @@ axe-core@^4.6.2:
   version "4.7.1"
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.7.1.tgz"
   integrity sha512-sCXXUhA+cljomZ3ZAwb8i1p3oOlkABzPy08ZDAoGcYuvtBPlQ1Ytde129ArXyHWDhfeewq7rlx9F+cUx2SSlkg==
+
+axios@^0.21.1:
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
+  integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
+  dependencies:
+    follow-redirects "^1.14.0"
 
 axios@^1.4.0:
   version "1.4.0"
@@ -3629,6 +3785,11 @@ destroy@1.2.0:
   resolved "https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz"
   integrity sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==
 
+detect-browser@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/detect-browser/-/detect-browser-5.3.0.tgz#9705ef2bddf46072d0f7265a1fe300e36fe7ceca"
+  integrity sha512-53rsFbGdwMwlF7qvCt0ypLM5V5/Mbl0szB7GPN8y9NCcbknYOeVVXdrXEq+90IwAfrrzt6Hd+u2E2ntakICU8w==
+
 detect-newline@^3.0.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/detect-newline/-/detect-newline-3.1.0.tgz"
@@ -4484,7 +4645,7 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-follow-redirects@^1.0.0, follow-redirects@^1.15.0:
+follow-redirects@^1.0.0, follow-redirects@^1.14.0, follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -6005,6 +6166,11 @@ json-parse-even-better-errors@^2.3.0, json-parse-even-better-errors@^2.3.1:
   resolved "https://registry.npmjs.org/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
+json-ptr@^3.1.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/json-ptr/-/json-ptr-3.1.1.tgz#184c3d48db659fa9bbc1519f7db6f390ddffb659"
+  integrity sha512-SiSJQ805W1sDUCD1+/t1/1BIrveq2Fe9HJqENxZmMCILmrPI7WhS/pePpIOx85v6/H2z1Vy7AI08GV2TzfXocg==
+
 json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz"
@@ -6170,6 +6336,11 @@ lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
+
+lodash.flatmap@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.flatmap/-/lodash.flatmap-4.5.0.tgz#ef8cbf408f6e48268663345305c6acc0b778702e"
+  integrity sha512-/OcpcAGWlrZyoHGeHh3cAoa6nGdX6QYtmzNP84Jqol6UEQQ2gIaU3H+0eICcjcKGl0/XF8LWOujNn9lffsnaOg==
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -7675,6 +7846,14 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-square-web-payments-sdk@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-square-web-payments-sdk/-/react-square-web-payments-sdk-3.2.1.tgz#bab3e162b71b557a457e500cd0fc4fb0400ff524"
+  integrity sha512-XhW4snpCfUNaVqS652dDWSWJd+r9OftkqmvP9hix5ISEV8Foo9QrGDe33t1w+uMIl9ox1EWlexGb0yDe8ZYamQ==
+  dependencies:
+    "@square/web-sdk" "^2.0.0"
+    "@stitches/react" "^1.2.8"
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
@@ -8252,6 +8431,18 @@ sprintf-js@~1.0.2:
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
 
+square@^27.0.0:
+  version "27.0.0"
+  resolved "https://registry.yarnpkg.com/square/-/square-27.0.0.tgz#ec3e052ec96927975f1597b99db0412829e52482"
+  integrity sha512-+tGHX+b8y5htC6EkCV6Hhot6Lj15ITBSkoVH/1DkiFwtBzLFyZ47/gPwk7bvvLf0I4baz9Ig2lqxYy8VyekFYQ==
+  dependencies:
+    "@apimatic/authentication-adapters" "^0.3.0"
+    "@apimatic/axios-client-adapter" "^0.2.0"
+    "@apimatic/core" "^0.10.0"
+    "@apimatic/json-bigint" "^1.2.0"
+    "@apimatic/schema" "^0.7.0"
+    "@types/node" "^14.14.30"
+
 stable@^0.1.8:
   version "0.1.8"
   resolved "https://registry.npmjs.org/stable/-/stable-0.1.8.tgz"
@@ -8654,7 +8845,7 @@ tiny-invariant@^1.0.2:
   resolved "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.1.tgz"
   integrity sha512-AD5ih2NlSssTCwsMznbvwMZpJ1cbhkGd2uueNxzv2jDlEeZdU04JQfRnggJQ8DrcVBGjAsCKwFBbDlVNtEMlzw==
 
-tiny-warning@^1.0.0:
+tiny-warning@^1.0.0, tiny-warning@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
   integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
@@ -8735,6 +8926,11 @@ tslib@^2.0.3:
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
   integrity sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==
 
+tslib@^2.1.0:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.2.tgz#1b6f07185c881557b0ffa84b111a0106989e8338"
+  integrity sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==
+
 tsutils@^3.21.0:
   version "3.21.0"
   resolved "https://registry.npmjs.org/tsutils/-/tsutils-3.21.0.tgz"
@@ -8799,6 +8995,11 @@ typedarray-to-buffer@^3.1.5:
   integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
   dependencies:
     is-typedarray "^1.0.0"
+
+typescript@^4.9.5:
+  version "4.9.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
+  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
