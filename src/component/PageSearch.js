@@ -5,7 +5,7 @@ function PageSearch() {
     <div class="search-input">
      
         <img src={require("../assets/Search.png")} alt="search"/>
-        <input type="text" class="w-full ml-2"/>
+        <input type="text" class="w-full ml-2" placeholder="Search for a dish,feature.."/>
       
     </div>
   )
