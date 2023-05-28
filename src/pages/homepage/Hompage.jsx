@@ -5,7 +5,7 @@ import merchantImage from "../../assets/merchant_image.png";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import PersonalInfoCard from "../../component/profile/PersonalInfoCard";
+
 const Homepage = (props) => {
   const [selectedRole, setSelectedRole] = useState('customer');
   let history = useHistory();
@@ -15,7 +15,6 @@ const Homepage = (props) => {
 
   return (
     <div className={styles.Homepage_container}>
-      <PersonalInfoCard/>
       <div className={styles.Big_container}>
         <div className={styles.logo_container}>
           <img src={logo} alt="eatly_logo" />

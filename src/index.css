@@ -186,35 +186,76 @@ p.line_text span {
   display:flex;
   border-radius:20px;
   flex-direction: column;
-  margin:2%;
-  padding:2%;
+  
+  padding:5%;
+  width:100%;
 }
 .personal-info-container{
   background-color: #FFF5EE;
   display:flex;
+  width:100%;
   border-radius:20px;
   flex-direction: column;
-  margin:2%;
-  padding:2%;
+  padding-right:8%;
+  padding-left:8%;
+  padding-top:3%;
+  flex: 1 1 auto;
+  height:full;
 }
 
 .personal-info-gender-select{
   border-radius:50%;
   border: gray 1px solid;
   display:flex;
-  width:20%;
+  padding:2%;
   margin-left:15%;
+  aspect-ratio : 1 / 1;
+  
+ 
 }
 
 .personal-info-gender-select-selected{
   border-radius:50%;
   border: gray 1px solid;
   display:flex;
-  width:20%;
+  padding:2%;
   margin-left:15%;
+  aspect-ratio : 1 / 1;
   background-color:#99592A;
+  z-index:0;
 }
 
+.personal-info-input{
+  border-radius:20px;
+  padding:10px;
+  border:#99592A solid 1px;
+}
+
+.address-modal-input-small{
+  border-radius:20px;
+  padding:10px;
+  border: #99592A solid 1px;
+  margin:2px;
+}
+
+.profile-header-container{
+  background-color: #FFF5EE;
+  display:flex;
+  width:100%;
+  border-radius:20px;
+  margin:2%;
+  padding:4%;
+  flex: 1 1 auto;
+}
+
+.search-input{
+  border: 1px gray solid;
+  border-radius:20px;
+  display:flex;
+  width:50%;
+  height:60%;
+  padding:1%;
+}
 
 .dashboard_main {
   width: 100%;
