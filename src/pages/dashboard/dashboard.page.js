@@ -10,6 +10,13 @@ import AddressModal from "../../component/AddressModal";
 
 const Dashboard = (props) => {
   const [show, setShow] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [address, setAddress] = useState({
+    street: "",
+    city: "",
+    state: "",
+    zipCode: ""
+  });
 
   const showModal = () => {
     setShow(!show);
@@ -38,7 +45,13 @@ const Dashboard = (props) => {
           />
         </div>
       </div>
-      {show && <AddressModal />}
+      { show && 
+          <AddressModal 
+            setShow={setShow}
+            setAddress={setAddress}
+            setShowPaymentModal={setShowPaymentModal}
+          />
+      }
     </div>
   );
 };

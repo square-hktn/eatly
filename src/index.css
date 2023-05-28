@@ -226,3 +226,6 @@ p.line_text span {
 .sidebar_logo_circle {
   background: white;
 }
+.close-btn {
+  cursor: pointer;
+}
