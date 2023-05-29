@@ -7,6 +7,7 @@ import locationIcon from "../../assets/Location.svg";
 
 //import ConfirmationModal from "../../component/ConfirmationModal";
 import AddressModal from "../../component/AddressModal";
+import SquarePayment from "../../component/square_payment/SquarePayment";
 
 const Dashboard = (props) => {
   const [show, setShow] = useState(false);
@@ -52,6 +53,7 @@ const Dashboard = (props) => {
           setShowPaymentModal={setShowPaymentModal}
         />
       )}
+      {showPaymentModal && <SquarePayment address={address}/>}
     </div>
   );
 };

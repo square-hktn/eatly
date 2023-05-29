@@ -1,9 +1,19 @@
-
+import styles from "./SquarePayment.module.scss";
 import { CreditCard, PaymentForm } from "react-square-web-payments-sdk";
+import axios from "axios";
 
-const MyPaymentForm = () => {
-  const handleCardTokenizeResponse = (token, buyer) => {
+const MyPaymentForm = (props) => {
+  const handleCardTokenizeResponse = async (token, buyer) => {
     console.log({ token, buyer });
+    const body = {
+      locationId: "LKQYD715WAF8J",
+      sourceId: token.token,
+      idempotencyKey: crypto.randomUUID(),
+    };
+    const response = await axios
+      .post("https://eatly-api.onrender.com/payment", body)
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err));
     // Handle successful tokenization
     // You can make an API call to your server to process the payment using the token
   };
@@ -15,31 +25,31 @@ const MyPaymentForm = () => {
   };
 
   return (
-    <PaymentForm
-      applicationId=""
-      cardTokenizeResponseReceived={handleCardTokenizeResponse}
-      cardTokenizeErrorReceived={handleCardTokenizeError}
-      createVerificationDetails={() => ({
-        amount: "1000",
-        billingContact: {
-          addressLines: ["123 Main Street", "Apartment 1"],
-          familyName: "Doe",
-          givenName: "John",
-          countryCode: "GB",
-          city: "London",
-        },
-        currencyCode: "USD",
-        intent: "CHARGE",
-      })}
-      locationId=""
-    >
-      <form>
-        <input type="text" placeholder="name" />
-        <input type="number" placeholder="amount" />
-        <button>pay</button>
-      </form>
-      <CreditCard />
-    </PaymentForm>
+    <div className={styles.modal}>
+      <div className={styles.modal_content}>
+        <div>x</div>
+        <PaymentForm
+          applicationId="sandbox-sq0idb-YI3wzf4LtWsHowjjYJsTGw"
+          cardTokenizeResponseReceived={handleCardTokenizeResponse}
+          cardTokenizeErrorReceived={handleCardTokenizeError}
+          createVerificationDetails={() => ({
+            amount: "1000",
+            billingContact: {
+              addressLines: [props.address.street],
+              familyName: "Doe",
+              givenName: "John",
+              countryCode: "GB",
+              city: props.address.state,
+            },
+            currencyCode: "USD",
+            intent: "CHARGE",
+          })}
+          locationId="LKQYD715WAF8J"
+        >
+          <CreditCard />
+        </PaymentForm>
+      </div>
+    </div>
   );
 };
 

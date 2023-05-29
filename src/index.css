@@ -70,8 +70,6 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 1000;
 }
 
@@ -81,6 +79,8 @@
   background: #fff5ee;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2%;
   background: #fff5ee;
   border-radius: 20px;
@@ -108,6 +108,18 @@
 .close-btn:hover,
 .close-btn:active {
   color: #2a160c;
+}
+
+.address_label {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  /* identical to box height, or 28px */
+  letter-spacing: 0.02em;
+  color: #989795;
+  text-align: left !important;
 }
 
 .confirmation-modal-promo-code-input {
@@ -169,32 +181,42 @@ p.line_text span {
 }
 
 .address-modal-button-container {
-  position: absolute;
-  bottom: 0px;
+  display: flex;
+  align-items: center;
 }
+
 .address-modal-back-button {
   border: #99592a 1px solid;
-  padding: 10px;
+  color: #99592a;
   border-radius: 20px;
-  width: 100%;
+  font-size: 16px;
+  padding: 5px;
+  width: 200px;
 }
 .address-modal-payment-button {
-  background-color: #99592a;
-  padding: 10px;
   border-radius: 20px;
-  width: 100%;
+  padding: 5px;
+  background: #99592a;
+  border: 1px solid #99592a;
+  width: 200px;
+  text-align: center;
+  color: white;
 }
 
 .address-modal-input {
   border-radius: 20px;
-  padding: 10px;
-  border: black solid 1px;
+  padding: 7px 13px;
+  border: 1px solid #99592a;
+  width: 100%;
+  text-align: center;
 }
+
 .address-modal-input-small {
   border-radius: 20px;
   padding: 10px;
-  border: black solid 1px;
+  border: 1px solid #99592a;
   margin: 2px;
+  width: 100%;
 }
 
 .dashboard_main {
