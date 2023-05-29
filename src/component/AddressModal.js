@@ -18,16 +18,16 @@ function AddressModal(props) {
     });
     props.setShow(false);
     props.setShowPaymentModal(true);
-    setStreet("");
-    setCity("");
-    setZipCode("");
-    setState("");
+    
   };
 
   const handleShowModal = () => {
     props.setShow(false);
   };
 
+  const handleback = () => {
+    navigate.push("/dashboard");
+  };
   return (
     <div className="address_modal">
       <div className="confirmation_sidebar_wrapper">
@@ -35,7 +35,6 @@ function AddressModal(props) {
           <div className="flex justify-center w-32">
             <p className="text-3xl font-semibold text-center">Address</p>
           </div>
-
           <div className="flex justify-end w-64">
             <button className="close-btn " onClick={(e) => handleShowModal(e)}>
               x
@@ -47,69 +46,68 @@ function AddressModal(props) {
           Order #12345
         </p>
 
-        <div className="flex w-full justify-start mt-5">
+        <div className="flex w-full justify-start mt-5 flex-col">
           <p className="font-bold text-start mb-3">Where do we deliver?</p>
+          <div className="flex flex-col w-full border-t-2 border-gray-400" />
         </div>
-
         <form onSubmit={handlesubmit}>
-          <div className="flex flex-col w-full border-t-2 border-gray-400">
-            <div class="flex flex-col w-full mt-6">
-              <p class="mb-3">House no./Apartment/Street</p>
+          <div className="flex flex-col w-full mt-6">
+            <p className="address_label">House no./Apartment/Street</p>
+            <input
+              placeholder="732"
+              className="address-modal-input "
+              required=""
+              name="street"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
+            />
+          </div>
+
+          <div className="flex flex-col w-full mt-6">
+            <p className="address_label">Locality/District/City</p>
+            <input
+              className="address-modal-input "
+              required=""
+              name="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
+
+          <div className="flex w-full  justify-between pt-5 pb-10 ">
+            <div className="flex flex-col w-1/2 mr-2">
+              <p className="address_label">State</p>
               <input
-                placeholder="732"
-                class="address-modal-input "
+                className="address-modal-input-small"
                 required=""
-                name="street"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
+                name="state"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
               />
             </div>
-            <div class="flex flex-col w-full mt-6">
-              <p class="mb-3">Locality/District/City</p>
+            <div className="flex flex-col w-1/2">
+              <p className="address_label">Zipcode</p>
               <input
-                class="address-modal-input "
-                required=""
-                name="city"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                className="address-modal-input-small "
+                value={zipCode}
+                onChange={(e) => setZipCode(e.target.value)}
+                name="zipCode"
               />
-            </div>
-            <div class="flex w-full  justify-between pt-5 pb-10 ">
-              <div class="flex flex-col w-1/2 mr-2">
-                <p class="mb-2">State</p>
-                <input
-                  class="address-modal-input-small "
-                  required=""
-                  name="state"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                />
-              </div>
-              <div class="flex flex-col w-1/2  ">
-                <p class="pb-2">Zipcode</p>
-                <input
-                  class="address-modal-input-small "
-                  value={zipCode}
-                  onChange={(e) => setZipCode(e.target.value)}
-                  name="zipCode"
-                />
-              </div>
             </div>
           </div>
-          <div class="address-modal-button-container  w-5/6">
-            <div class="flex w-full justify-between  bottom-0">
-              <div class=" w-3/5 ml-2">
-                <button class="address-modal-back-button">
-                  <p class="text-[#99592A] text-center font-semibold">Back</p>
-                </button>
-              </div>
-              <div className="w-full ml-2 mb-10">
-                <button className="address-modal-payment-button" type="submit">
-                  <p class="text-white text-center font-semibold">
-                    Continue to Payment
-                  </p>
-                </button>
-              </div>
+          <div className="address-modal-button-container">
+            <div>
+              <button
+                className="address-modal-back-button"
+                onClick={handleback}
+              >
+                Back
+              </button>
+            </div>
+            <div>
+              <button className="address-modal-payment-button" type="submit">
+                Continue
+              </button>
             </div>
           </div>
         </form>
