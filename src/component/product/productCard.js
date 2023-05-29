@@ -20,12 +20,12 @@ const ProductCard = (props) => {
             <div className={styles.productDetails}>
               <center>
                 <p className={styles.productName}>{info.name}</p>
-                <span>{info.cost}</span>
+                <span className={styles.span}>{info.cost}</span>
               </center>
-              <label>{info.restaurantName}</label>
+              <label className={styles.smalltitle}>{info.restaurantName}</label>
               <div className={styles.btnSection}>
                 <img src={addIcon} className={styles.addImage} alt="add_icon" />
-                <button>Add to Cart</button>
+                <button className={styles.cartbtn}>Add to Cart</button>
               </div>
             </div>
           </div>

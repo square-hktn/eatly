@@ -3,7 +3,9 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
+
 .restaurantSection {
   height: 30%;
   width: 13%;
@@ -16,7 +18,7 @@
 .active {
   height: 3px;
   width: 100%;
-  background: #99592A;
+  background: #99592a;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -34,8 +36,9 @@
   border-radius: 30px;
   display: flex;
   flex-direction: row;
+   margin-top: 1rem;
 }
-.filters{
+.filters {
   display: flex;
   flex-flow: row;
   width: 100%;
