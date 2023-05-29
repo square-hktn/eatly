@@ -1,8 +1,19 @@
 .productContainer {
   display: grid;
-  grid-template-columns: repeat(5, 0.2fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (min-width: 901px) and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
 .productCard {
   height: 350px;
   width: 200px;
@@ -21,8 +32,8 @@
 }
 
 .productImage {
- width: 100%;
- height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .productDetails {
   height: 80%;
@@ -39,16 +50,19 @@
   font-size: 14px;
   font-weight: 500;
 }
-span {
+
+.span {
   color: #1a1817;
   font-weight: 300;
 }
-label {
+
+.smalltitle {
   color: #99592a;
   font-size: smaller;
   width: 100%;
   text-align: center;
 }
+
 .btnSection {
   height: 50px;
   width: 90%;
@@ -57,7 +71,8 @@ label {
   margin: auto;
   position: relative;
 }
-button {
+
+.cartbtn {
   background: #99592a;
   width: 100%;
   height: 100%;

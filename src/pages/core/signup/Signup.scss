@@ -1,8 +1,7 @@
 .signup_container {
-  border-box: box-sizing;
   background: rgba(255, 245, 238, 1);
   margin: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +9,6 @@
   padding: 32px 0px;
   @media only screen and (min-width: 320px) and (max-width: 768px) {
     padding: 32px;
-    height: 100%;
   }
 
   .big_container {
@@ -39,7 +37,7 @@
       font-style: normal;
       font-weight: 600;
       font-size: 40px;
-      line-height: 130%;
+      //line-height: 130%;
       text-align: center;
       margin: 0;
       margin-top: 0.5rem;
@@ -66,7 +64,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 175%;
+
     /* identical to box height, or 28px */
     letter-spacing: 0.02em;
     color: #989795;
@@ -84,7 +82,6 @@
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 130%;
     outline: none;
     /* identical to box height, or 21px */
     color: #989795;
@@ -164,7 +161,6 @@
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
-      line-height: 175%;
       /* identical to box height, or 28px */
       text-align: center;
       letter-spacing: 0.02em;
@@ -188,7 +184,6 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 175%;
     text-align: center;
     /* identical to box height, or 28px */
     letter-spacing: 0.02em;

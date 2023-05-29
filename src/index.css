@@ -2,20 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,400;1,500;1,600;1,700&display=swap");
 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 .welcome_page_cover {
   background: url("./assets/covers/Banner.svg") no-repeat;
   height: 100%;
@@ -34,10 +28,12 @@ code {
   padding: 5px;
   z-index: 0;
 }
+
 .landing_large_card :after {
   content: "";
   opacity: 80%;
 }
+
 .client_card {
   background-color: white;
   opacity: 100%;
@@ -89,6 +85,29 @@ code {
   background: #fff5ee;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.address_modal-header {
+  display: flex;
+  column-gap: 5rem;
+}
+
+.close_btn_container {
+  display: flex;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.close-btn:disabled {
+  color: #989795;
+}
+.close-btn:hover,
+.close-btn:active {
+  color: #2a160c;
 }
 
 .confirmation-modal-promo-code-input {
@@ -225,7 +244,4 @@ p.line_text span {
 }
 .sidebar_logo_circle {
   background: white;
-}
-.close-btn {
-  cursor: pointer;
 }

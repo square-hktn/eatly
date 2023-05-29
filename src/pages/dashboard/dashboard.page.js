@@ -15,7 +15,7 @@ const Dashboard = (props) => {
     street: "",
     city: "",
     state: "",
-    zipCode: ""
+    zipCode: "",
   });
 
   const showModal = () => {
@@ -45,13 +45,13 @@ const Dashboard = (props) => {
           />
         </div>
       </div>
-      { show && 
-          <AddressModal 
-            setShow={setShow}
-            setAddress={setAddress}
-            setShowPaymentModal={setShowPaymentModal}
-          />
-      }
+      {show && (
+        <AddressModal
+          setShow={setShow}
+          setAddress={setAddress}
+          setShowPaymentModal={setShowPaymentModal}
+        />
+      )}
     </div>
   );
 };
