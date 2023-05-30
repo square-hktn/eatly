@@ -4,6 +4,8 @@ import clientImage from "../../assets/client_image.png";
 import merchantImage from "../../assets/merchant_image.png";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import AddressModal from "../../component/cart/AddressModal";
+import ConfirmationModal from "../../component/cart/ConfirmationModal";
 
 const Homepage = (props) => {
   const [selectedRole, setSelectedRole] = useState("customer");
@@ -18,6 +20,7 @@ const Homepage = (props) => {
   return (
     <div className={styles.Homepage_container}>
       <div className={styles.Big_container}>
+        <ConfirmationModal/>
         <div className={styles.logo_container}>
           <img src={logo} alt="eatly_logo" />
           <h1 className={styles.title}>Choose your login type</h1>

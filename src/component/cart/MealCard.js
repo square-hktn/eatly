@@ -13,7 +13,7 @@ function MealCard() {
     <div class="flex flex-col w-2/3 justify-start p-2">
       <div class="flex  justify-start mr-4">
         <div class="flex w-1/3">
-         <img src={require("../assets/Image6.png")} alt="meal"/>
+         <img src={require("../../assets/Image6.png")} alt="meal"/>
         </div>
           
         <div class="flex ">
