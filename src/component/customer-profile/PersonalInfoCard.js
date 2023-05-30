@@ -51,18 +51,18 @@ function PersonalInfoCard() {
       <div class="flex w-full  justify-between pt-5  ">
         <div class="flex flex-col w-1/2 mr-2">
           <p class="mb-2 text-gray-500">First Name</p>
-          <input  class="address-modal-input-small " required="" placeholder={firstname} onChange={(e)=>{
+          <input  class="address-modal-input-small " disabled required="" placeholder={firstname} onChange={(e)=>{
            }}/>
         </div>
         <div class="flex flex-col w-1/2 ">
           <p class="pb-2 text-gray-500">Last Name</p>
-          <input  class="address-modal-input-small " placeholder={lastname} required="" onChange={(e)=>{
+          <input  class="address-modal-input-small" disabled placeholder={lastname} required="" onChange={(e)=>{
           }}/>
         </div>
     </div> 
     <div class="flex flex-col w-full mt-3">
         <p class="mb-3 text-gray-500">Email</p>
-        <input   class="personal-info-input " required="" placeholder={email} onChange={(e)=>{
+        <input   class="personal-info-input " required="" disabled placeholder={email} onChange={(e)=>{
            setEmail(e.target.value)}}/>
      </div>
      <div class="flex flex-col w-full mt-3">
