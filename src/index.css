@@ -227,6 +227,56 @@ p.line_text span {
   width: 100%;
 }
 
+.most-ordered-container{
+  background-color: #FFF5EE;
+  display:flex;
+  border-radius:20px;
+  flex-direction: column;
+  margin-top:5%;
+  padding:5%;
+  width:100%;
+
+}
+.personal-info-container{
+  background-color: #FFF5EE;
+  display:flex;
+  width:100%;
+  border-radius:20px;
+  flex-direction: column;
+  padding-right:8%;
+  padding-left:8%;
+  padding-top:3%;
+  flex: 1 1 auto;
+  height:full;
+}
+
+.personal-info-gender-select{
+  border-radius:50%;
+  border: gray 1px solid;
+  display:flex;
+  padding:2%;
+  margin-left:15%;
+  aspect-ratio : 1 / 1;
+  
+ 
+}
+
+.personal-info-gender-select-selected{
+  border-radius:50%;
+  border: gray 1px solid;
+  display:flex;
+  padding:2%;
+  margin-left:15%;
+  aspect-ratio : 1 / 1;
+  background-color:#99592A;
+  z-index:0;
+}
+
+.personal-info-input{
+  border-radius:20px;
+  padding:10px;
+  border:#99592A solid 1px;
+}
 .dashboard_main {
   width: 100%;
   margin: auto;
