@@ -400,7 +400,7 @@ p.line_text span {
 
 .merchant-profile-card-select{
  display:flex;
- width:50%;
+ width:60%;
  border-radius:20px;
  border: black solid 2px;
  justify-content:end;

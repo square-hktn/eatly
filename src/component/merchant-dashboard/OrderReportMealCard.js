@@ -8,11 +8,10 @@ function OrderReportMealCard() {
     status:"completed"
   }
   return (
-    <div class="flex flex-col w-full mb-5 p-2">
-    <div class="flex w-full justify-between text-base font-medium text-gray-900 mb-5">
-        <div class="flex w-1/4 ml-2">
-            <p class="">#12346</p>
-  
+    <div class="flex flex-col w-full mb-5 ">
+    <div class="flex w-full text-base font-medium text-gray-900 mb-5 ">
+        <div class="flex w-1/4 ml-2 justify-start ">
+            <p class="ml-4">#12346</p>
         </div>
         <div class="flex w-1/4 ml-2 justify-center">
            {meal.title.substring(0,20)}
@@ -24,7 +23,7 @@ function OrderReportMealCard() {
          {
           meal.status=="completed"?
           <div class="flex  bg-green-300 rounded-md  p-2 justify-center rounded-border">
-          <p class="text-green-800">Completed</p>
+          <p class="text-green-800 text-sm">Completed</p>
         </div>
         :
         <div>
@@ -33,7 +32,7 @@ function OrderReportMealCard() {
           {
           meal.status=="preparing"?
           <div class="flex rounded-border bg-orange-300  rounded-md  p-2 justify-center">
-          <p class="text-orange-800">Preparing</p>
+          <p class="text-orange-800 text-sm">Preparing</p>
         </div>
         :
         <div>
@@ -42,7 +41,7 @@ function OrderReportMealCard() {
            {
           meal.status=="cancelled"?
           <div class="flex rounded-border bg-red-300  rounded-md  p-2 justify-center">
-          <p class="text-red-800">Preparing</p>
+          <p class="text-red-800 text-sm">Preparing</p>
         </div>
         :
         <div>
@@ -51,7 +50,7 @@ function OrderReportMealCard() {
            {
           meal.status=="pending"?
           <div class="flex rounded-border bg-purple-300  rounded-md  p-2 justify-center">
-          <p class="text-purple-800">Pending</p>
+          <p class="text-purple-800 text-sm">Pending</p>
         </div>
         :
         <div>

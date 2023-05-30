@@ -12,11 +12,11 @@ function OrderReport() {
         <div class="flex w-1/2">
           <div class="flex w-1/4"></div>
       <div class='flex w-full justify-end'>
-        <div class="merchant-profile-card-select">
-          <select class="bg-[#FFF5EE]" >
-            <option value='Pending'>Pending</option>
-            <option value='Completed'>Completed</option>
-            <option value='Cancelled'>Cancelled</option>
+        <div class="merchant-profile-card-select ">
+          <select class="bg-[#FFF5EE] " >
+            <option value='Pending'> Pending</option>
+            <option value='Completed'> Completed</option>
+            <option value='Cancelled'> Cancelled</option>
           </select>
         </div>
         </div>
@@ -24,7 +24,7 @@ function OrderReport() {
       </div>
       <tr class='flex w-full border-b-2 border-black p-5'>
         <th class='flex w-1/4 '>
-          <p>Order ID</p>
+          <p class="text-start">Order ID</p>
         </th>
         <th class='flex w-1/4 '>
           <p> Menu</p>
@@ -36,7 +36,7 @@ function OrderReport() {
           <p>status</p>
         </th>
       </tr>
-      <div class='h-[40vh] overflow-y-scroll overflow-hidden'>
+      <div class='h-[40vh] overflow-y-scroll overflow-hidden w-full'>
         <OrderReportMealCard/>
         <OrderReportMealCard/>
         <OrderReportMealCard/>
