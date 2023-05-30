@@ -37,11 +37,12 @@ function ConfirmationModal () {
       </tr>
       {
         numMeals>2?
-        <div class="flex flex-col w-full h-[40vh] overflow-hidden overflow-y-scroll">
+        <div class="flex-col w-full h-[40%] overflow-hidden overflow-y-scroll border-t-2 border-black p-3">
           <MealCard/>
           <MealCard/>
           <MealCard/>
-          <MealCard/>
+          
+       
         </div>:
         <div class="flex w-full">
           <div class="flex flex-col w-full">
@@ -54,16 +55,11 @@ function ConfirmationModal () {
         <div class="flex w-full mt-12">
         <div className="flex  justify-around ">
             <div>
-              <button
-                className="address-modal-back-button mr-2"
-              
-              >
-                Back
-              </button>
+          
             </div>
             <div>
               <button className="address-modal-payment-button" type="submit">
-                Continue
+                Back
               </button>
             </div>
           </div>

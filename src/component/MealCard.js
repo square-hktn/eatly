@@ -7,7 +7,7 @@ function MealCard() {
   }
   
   return (
-    <div class="flex overflow-hidden mt-2">
+    <div class=" w-full m3-5 overflow-hidden block">
   <div class="flex flex-col w-full mb-3 h-30px overflow-hidden ">
     <div class="flex w-full text-top font-medium text-gray-900 mb-5 ">
     <div class="flex flex-col w-2/3 justify-start p-2">
