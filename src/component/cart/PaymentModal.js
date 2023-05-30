@@ -72,7 +72,7 @@ function PaymentModal() {
             setCash(false)
            }}>
               <div class="flex justify-center">
-               <img src={require("../assets/paypal.png")} alt="paypal"/>
+               <img src={require("../../assets/paypal.png")} alt="paypal"/>
              </div>
              <p class="text-sm text-center font-semibold text-gray-400">Paypal</p>
            </div>
@@ -80,14 +80,14 @@ function PaymentModal() {
           {cash?
           <div class="payment-modal-payment-options-box-selected mr-2">
               <div class="flex w-full justify-end">
-                <img src={require("../assets/checkmark-circle.png")} alt="check"/>
+                <img src={require("../../assets/checkmark-circle.png")} alt="check"/>
               </div>
              <div class="flex justify-center"onClick={()=>{
                 setCash(true)
                 setPaypal(false)
                 setCreditCard(false)
              }}>
-               <img src={require("../assets/wallet.png")} alt="paypal"/>
+               <img src={require("../../assets/wallet.png")} alt="paypal"/>
              </div>
              <p class="text-sm text-center font-semibold">Cash</p>
           </div>:
@@ -98,7 +98,7 @@ function PaymentModal() {
            
            }}>
               <div class="flex justify-center">
-               <img src={require("../assets/wallet.png")} alt="paypal"/>
+               <img src={require("../../assets/wallet.png")} alt="paypal"/>
              </div>
              <p class="text-sm text-center font-semibold text-gray-400">Cash</p>
            </div>
