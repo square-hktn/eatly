@@ -12,8 +12,8 @@ function OrderReport() {
         <div class="flex w-1/2">
           <div class="flex w-1/4"></div>
       <div class='flex w-full justify-end'>
-        <div class="merchant-profile-card-select ">
-          <select class="bg-[#FFF5EE] " >
+        <div class="merchant-profile-card-select">
+          <select class="bFFF5EE]g-[# " >
             <option value='Pending'> Pending</option>
             <option value='Completed'> Completed</option>
             <option value='Cancelled'> Cancelled</option>
