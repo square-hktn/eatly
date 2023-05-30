@@ -98,7 +98,7 @@ function AddressModal(props) {
           </div>
           <div className="flex justify-end w-1/2">
             <button className="close-btn " onClick={(e) => handleShowModal(e)}>
-              x
+             <p class="font-semibold text-2xl">x</p> 
             </button>
           </div>
       </div>
