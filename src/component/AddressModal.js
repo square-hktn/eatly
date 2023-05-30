@@ -31,22 +31,20 @@ function AddressModal(props) {
   return (
     <div className="address_modal">
       <div className="confirmation_sidebar_wrapper">
-        <div className="flex flex-row items-center">
-          <div className="flex justify-center w-32">
-            <p className="text-3xl font-semibold text-center">Address</p>
+      <div className="flex w-full">
+        <div className="flex flex-col justify-start w-1/2">
+            <p className="text-2xl font-semibold">Address</p>
+            <p className="font-semibold text-lg text-start text-[#99592A]  mt-2">
+              Order #12345
+            </p>
           </div>
-          <div className="flex justify-end w-64">
+          <div className="flex justify-end w-1/2">
             <button className="close-btn " onClick={(e) => handleShowModal(e)}>
               x
             </button>
           </div>
         </div>
-
-        <p className="font-semibold text-lg text-[#99592A] text-center mt-2">
-          Order #12345
-        </p>
-
-        <div className="flex w-full justify-start mt-5 flex-col">
+        <div className="flex w-full justify-start  flex-col">
           <p className="font-bold text-start mb-3">Where do we deliver?</p>
           <div className="flex flex-col w-full border-t-2 border-gray-400" />
         </div>
