@@ -7,7 +7,7 @@ function AddressModal(props) {
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [state, setState] = useState("");
-
+ 
   const handlesubmit = (e) => {
     e.preventDefault();
     props.setAddress({
@@ -28,30 +28,30 @@ function AddressModal(props) {
   const handleback = () => {
     navigate.push("/dashboard");
   };
+
   return (
     <div className="address_modal">
       <div className="confirmation_sidebar_wrapper">
-        <div className="flex flex-row items-center">
-          <div className="flex justify-center w-32">
-            <p className="text-3xl font-semibold text-center">Address</p>
+  
+      <div className="flex w-full justify-start  flex-col mt-2">
+        <div className="flex w-full">
+          <div className="flex flex-col justify-start w-1/2">
+            <p className="text-2xl font-semibold">Address</p>
+            <p className="font-semibold  text-start text-[#99592A] ">
+              Order #12345
+            </p>
           </div>
-          <div className="flex justify-end w-64">
+          <div className="flex justify-end w-1/2">
             <button className="close-btn " onClick={(e) => handleShowModal(e)}>
-              x
+             <p class="font-semibold text-2xl">x</p> 
             </button>
           </div>
-        </div>
+      </div>
 
-        <p className="font-semibold text-lg text-[#99592A] text-center mt-2">
-          Order #12345
-        </p>
-
-        <div className="flex w-full justify-start mt-5 flex-col">
-          <p className="font-bold text-start mb-3">Where do we deliver?</p>
+          <p className="font-bold text-start mt-12">Where do we deliver?</p>
           <div className="flex flex-col w-full border-t-2 border-gray-400" />
-        </div>
-        <form onSubmit={handlesubmit}>
-          <div className="flex flex-col w-full mt-6">
+          <form onSubmit={handlesubmit} class="mt-5">
+          <div className="flex flex-col w-full mt-2">
             <p className="address_label">House no./Apartment/Street</p>
             <input
               placeholder="732"
@@ -74,8 +74,8 @@ function AddressModal(props) {
             />
           </div>
 
-          <div className="flex w-full  justify-between pt-5 pb-10 ">
-            <div className="flex flex-col w-1/2 mr-2">
+          <div className="flex w-full justify-between pt-5 pb-10 ">
+            <div className="flex flex-col w-1/2  mr-2">
               <p className="address_label">State</p>
               <input
                 className="address-modal-input-small"
@@ -95,10 +95,13 @@ function AddressModal(props) {
               />
             </div>
           </div>
-          <div className="address-modal-button-container">
+      
+        </form>
+        <div class="flex w-full">
+        <div className="address-modal-button-container justify-around ">
             <div>
               <button
-                className="address-modal-back-button"
+                className="address-modal-back-button mr-2"
                 onClick={handleback}
               >
                 Back
@@ -110,10 +113,67 @@ function AddressModal(props) {
               </button>
             </div>
           </div>
-        </form>
+        </div>
+        </div>
+      
       </div>
     </div>
+    
   );
+  
 }
-
+/**
+ <div class="confirmation_sidebar_wrapper">
+<div class="flex flex-col">
+  <div class="flex flex-col mb-8">
+    <div class="flex w-full">
+      <p class="text-3xl font-semibold">
+        Address
+      </p>
+      <div class="flex w-full justify-end">
+        <p class="text-xl font-bold">x</p>
+       </div>
+    </div>
+  <p class="font-semibold text-lg text-[#99592A]">Order #12345</p>
+  </div>
+</div>
+<div class="flex w-full justify-start mt-5">
+   <p class="font-bold text-start mb-3">Where do we deliver?</p>
+</div>
+<div class="flex flex-col w-full border-t-2 border-gray-400">
+  <div class="flex flex-col w-full mt-6">
+    <p class="mb-3">House no./Apartment/Street</p>
+    <input   placeholder="732" class="address-modal-input " required=""/>
+  </div>
+  <div class="flex flex-col w-full mt-6">
+    <p class="mb-3">Locality/District/City</p>
+    <input   class="address-modal-input " required=""/>
+  </div>
+  <div class="flex w-full  justify-between pt-5 pb-10 ">
+    <div class="flex flex-col w-1/2 mr-2">
+      <p class="mb-2">State</p>
+      <input  class="address-modal-input-small " required="" />
+    </div>
+    <div class="flex flex-col w-1/2  ">
+      <p class="pb-2">Zipcode</p>
+      <input  class="address-modal-input-small " required="" />
+      </div>
+  </div>
+</div>
+<div class="address-modal-button-container w-5/6 ">
+<div class="flex w-full justify-between  bottom-0">
+    <div class=" w-1/2 ml-2">
+    <button class="address-modal-back-button">
+      <p class="text-[#99592A] text-center font-semibold text-sm">Back</p>
+    </button>
+   </div>
+    <div class="w-1/2 ml-2 mb-10 ">
+      <button class="address-modal-payment-button">
+        <span class=" text-white text-center font-semibold text-sm">Continue to Payment</span>
+      </button>
+     </div>
+</div>
+</div>
+</div>
+ */
 export default AddressModal;
