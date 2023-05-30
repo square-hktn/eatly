@@ -8,6 +8,7 @@ import locationIcon from "../../assets/Location.svg";
 //import ConfirmationModal from "../../component/ConfirmationModal";
 import AddressModal from "../../component/AddressModal";
 import SquarePayment from "../../component/square_payment/SquarePayment";
+import ConfirmationModal from "../../component/ConfirmationModal";
 
 const Dashboard = (props) => {
   const [show, setShow] = useState(false);
@@ -25,9 +26,11 @@ const Dashboard = (props) => {
   return (
     <div className={styles.dashboard_main}>
       <Sidebar />
+      <ConfirmationModal/>
       <div className={styles.sidebarHinge}></div>
       <div className={styles.content}>
         <Product />
+      
       </div>
       <div className={styles.cartHinge}></div>
       <div className={styles.cartSection}>

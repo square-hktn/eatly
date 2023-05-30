@@ -7,41 +7,32 @@ function MealCard() {
   }
   
   return (
-    <div class="flex flex-col w-full mb-5 p-2">
-    <div class="flex justify-between text-base font-medium text-gray-900 mb-5">
-        <div class="flex w-7/12">
-          <div class="flex w-1/3">
-            <img src={require("../assets/Image6.png")} alt="pizza"/> 
-          </div>
-          <div class="flex flex-col w-2/3 ml-2">
-            <div class="flex flex-col">
-              <p class="text-sm">
-                {meal.title.substring(0,15)}...
-              </p>
-            </div>
-            <div class="flex flex-col">
-              
-              <p class="text-xs text-gray-400">
-                 $ 2.29
-              </p>
-            </div>
-
-          </div>
+    <div class="flex overflow-hidden mt-2">
+  <div class="flex flex-col w-full mb-3 h-30px overflow-hidden ">
+    <div class="flex w-full text-top font-medium text-gray-900 mb-5 ">
+    <div class="flex flex-col w-2/3 justify-start p-2">
+      <div class="flex  justify-start mr-4">
+        <div class="flex w-1/3">
+         <img src={require("../assets/Image6.png")} alt="meal"/>
         </div>
-        <div class="flex w-1/8 justify-start">
-           <p class="text-start">1</p> 
+          
+        <div class="flex ">
+            {meal.title.substring(0,15)}
         </div>
-        <div class="flex w-1/8 justify-start">
-          <p class="text-start">$ {meal.price}</p> 
-        </div>
-       </div>  
-       <div class="flex justify-between">
-         <input type="text" class="mealcard-input" placeholder="Please, just a little spicy"/>
-       
-       </div>
-       
-     
+      </div>
+      <div class="justify-start w-full">
+        <input class="address-modal-input mt-3"type="text" placeholder="just a bit spicy..."/>
+      </div>
+    </div>
+    <div class="flex w-1/6 justify-end mr-6">
+      <p class="text-center">2</p>
+    </div>
+    <div class="flex w-1/6 justify-end mr-3 ">
+      QTY
+    </div>
+     </div>
   </div>
+</div>
   )
 }
 
