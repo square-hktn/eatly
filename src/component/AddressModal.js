@@ -97,8 +97,8 @@ function AddressModal(props) {
           </div>
       
         </form>
-        <div class="flex w-full">
-        <div className="address-modal-button-container justify-around ">
+        <div class="flex w-full mt-12">
+        <div className="flex  justify-around ">
             <div>
               <button
                 className="address-modal-back-button mr-2"

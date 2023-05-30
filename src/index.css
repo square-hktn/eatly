@@ -75,7 +75,7 @@
 
 .confirmation_sidebar_wrapper {
   width: 40%;
-  height: 100%;
+  height: 70%;
   background: #fff5ee;
   display: flex;
   flex-direction: column;
@@ -184,7 +184,9 @@ p.line_text span {
   align-self: flex-end;
   margin-bottom: 0px;
   position: absolute; bottom: 5%; 
-  width:350px;
+  width:450px;
+  justify-content: center;
+  
 
 }
 
