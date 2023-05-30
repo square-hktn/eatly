@@ -194,7 +194,7 @@ p.line_text span {
   border-radius: 20px;
   font-size: 16px;
   padding: 5px;
-  width: 140px;
+  width: 170px;
   display:flex;
   justify-content:center;
 }
@@ -203,7 +203,7 @@ p.line_text span {
   padding: 5px;
   background: #99592a;
   border: 1px solid #99592a;
-  width: 140px;
+  width: 170px;
   display:flex;
   text-align: center;
   color: white;
