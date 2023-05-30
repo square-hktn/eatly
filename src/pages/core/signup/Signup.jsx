@@ -16,9 +16,20 @@ const Signup = (props) => {
     role: "",
     restaurantName: "",
   });
+
   const [touched, setTouched] = useState({});
   //error
   const [formError, setFormError] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Button disabled state
+  const [isLoading, setIsLoading] = useState(false);
+  const [messageType, setMessageType] = useState("");
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    validate(formValues);
+    setFormError(validate(formValues));
+    setIsButtonDisabled(Object.keys(formError).length > 0); // Disable button if there are form errors
+  }, [formValues, touched, formError]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +45,6 @@ const Signup = (props) => {
     const errors = {};
     const regex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    // const passwordregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
     if (!values.first_name) {
       errors.first_name = "First Name is required";
@@ -53,10 +63,7 @@ const Signup = (props) => {
 
     if (!values.password) {
       errors.password = "Password is required";
-    } //else if (!passwordregex.test(values.password)) {
-    // errors.password =
-    // ("incorrect password, it must contain letters, number and special characters");
-    // }
+    }
     if (!values.city) {
       errors.city = "Please enter your city";
     }
@@ -71,11 +78,6 @@ const Signup = (props) => {
 
     return errors;
   };
-
-  useEffect(() => {
-    validate(formValues);
-    setFormError(validate(formValues));
-  }, [formValues, touched]);
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -105,7 +107,7 @@ const Signup = (props) => {
         role: false,
         restaurantName: false,
       });
-
+      setIsLoading(true);
       let userData = {
         name: `${formValues.first_name} ${formValues.last_name}`,
         email: formValues.email,
@@ -134,12 +136,14 @@ const Signup = (props) => {
           console.log(data);
           if (data.status === "success") {
             navigate.push("/dashboard");
-            alert("New user is created");
+            setMessageType("New user is created");
+            setShowToast(true);
             setFormValues({});
             setFormError({});
             e.target.reset();
           } else {
-            alert(data.message || data.json.details[0].message);
+            setShowToast(true);
+            setMessageType(data.message || data.json.details[0].message);
           }
         })
         .catch((error) => console.log(error));
@@ -292,9 +296,33 @@ const Signup = (props) => {
               </div>
             </div>
             <div className="btn_container">
-              <button className="btn">Sign Up</button>
+              <button className="btn" disabled={isButtonDisabled}>
+                {isLoading ? (
+                  <div className="flex justify-center items-center">
+                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-5 w-5" />
+                  </div>
+                ) : (
+                  "Sign Up"
+                )}
+              </button>
             </div>
           </form>
+          {showToast && (
+            <div className="ToastContainer">
+              <div className="centered">
+                <div className=" toast white py-2 px-4 rounded">
+                  <div
+                    className="flex justify-end text-lg font-bold cursor-pointer"
+                    onClick={() => setShowToast(false)}
+                  >
+                    x
+                  </div>
+                  <h1 className="toastTitle">{messageType}</h1>
+                </div>
+              </div>
+            </div>
+          )}
+
           <h3 className="subtext">
             Already have an Account{" "}
             <Link to="/signin" className="link">

@@ -12,6 +12,10 @@ const Login = (props) => {
   const [touched, setTouched] = useState({});
   //error
   const [formError, setFormError] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Button disabled state
+  const [isLoading, setIsLoading] = useState(false);
+  const [messageType, setMessageType] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const { search } = useLocation();
   const role = search?.split("?")[1];
   let history = useHistory();
@@ -19,10 +23,13 @@ const Login = (props) => {
   useEffect(() => {
     validate(formValues);
     setFormError(validate(formValues));
-  }, [formValues, touched]);
+    setIsButtonDisabled(Object.keys(formError).length > 0); // Disable button if there are form errors
+  }, [formValues, touched, formError]);
 
   if (role !== "merchant" && role !== "customer") {
-    window.alert("invalid role");
+    setMessageType("invalid role");
+    setShowToast(true);
+    //window.alert("invalid role");
     return history.push(`/`);
   }
 
@@ -40,7 +47,6 @@ const Login = (props) => {
     const errors = {};
     const regex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    // const passwordregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
     if (!values.email) {
       errors.email = "Email is required";
@@ -50,17 +56,13 @@ const Login = (props) => {
 
     if (!values.password) {
       errors.password = "Password is required";
-    } //else if (!passwordregex.test(values.password)) {
-    // errors.password =
-    // ("incorrect password, it must contain letters, number and special characters");
-    // }
-
+    }
     return errors;
   };
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    console.log(formValues);
+    // console.log(formValues);
 
     if (Object.keys(formError).length > 0) {
       setTouched({
@@ -74,7 +76,7 @@ const Login = (props) => {
         email: false,
         password: false,
       });
-
+      setIsLoading(true);
       let userData = {
         email: formValues.email,
         password: formValues.password,
@@ -92,16 +94,21 @@ const Login = (props) => {
         .then((data) => {
           console.log(data);
           if (data.status === "success") {
-            history.push("/dashboard");
-            alert("login is successful");
+            setMessageType("login is successful");
+            setShowToast(true);
             setFormValues({});
             setFormError({});
             e.target.reset();
+            history.push("/dashboard");
           } else {
-            alert(data.message || data.json.details[0].message);
+            setMessageType(data.message || data.json.details[0].message);
+            setShowToast(true);
           }
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
+        .finally(() => {
+          setIsLoading(false); // Stop loading state
+        });
     }
   };
 
@@ -150,9 +157,34 @@ const Login = (props) => {
               </div>
             </div>
             <div className={styles.btn_container}>
-              <button className={styles.btn}>Sign in</button>
+              <button className={styles.btn} disabled={isButtonDisabled}>
+                {isLoading ? (
+                  <div className="flex justify-center items-center">
+                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-5 w-5" />
+                  </div>
+                ) : (
+                  "Sign in"
+                )}
+              </button>
             </div>
           </form>
+          {showToast && (
+            <div className={styles.ToastContainer}>
+              <div className={styles.centered}>
+                <div
+                  className={`${styles.toast} toast white py-2 px-4 rounded`}
+                >
+                  <div
+                    className="flex justify-end text-lg font-bold cursor-pointer"
+                    onClick={() => setShowToast(false)}
+                  >
+                    x
+                  </div>
+                  <h1 className={styles.toastTitle}>{messageType}</h1>
+                </div>
+              </div>
+            </div>
+          )}
           <h3 className={styles.subtext}>
             Don't have an account?{" "}
             <Link to="/signup" className={styles.link}>
