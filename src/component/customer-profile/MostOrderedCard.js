@@ -50,7 +50,7 @@ function MostOrderedCard() {
            <p class="text-gray-400 text-sm">List of your most ordered dishes</p>
           </div>
         
-        <div class="flex flex-col mt-10 overflow-y-scroll overflow-hidden h-  p-3">
+        <div class="flex-col mt-10 overflow-y-scroll overflow-hidden h-[40vh]  p-3">
           <MostOrderedMealCard/>
           <MostOrderedMealCard/>
           <MostOrderedMealCard/>

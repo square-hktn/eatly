@@ -188,6 +188,8 @@ p.line_text span {
 
 }
 
+
+
 .address-modal-back-button {
   border: #99592a 1px solid;
   color: #99592a;
@@ -258,8 +260,8 @@ p.line_text span {
   margin-left:15%;
   aspect-ratio : 1 / 1;
   
- 
 }
+
 
 .personal-info-gender-select-selected{
   border-radius:50%;
@@ -276,6 +278,14 @@ p.line_text span {
   border-radius:20px;
   padding:10px;
   border:#99592A solid 1px;
+}
+
+.very-round{
+  border-radius:20px;
+}
+.send-to-bottom{
+  margin-bottom: 0px;
+  position: absolute; bottom: 5%; 
 }
 .dashboard_main {
   width: 100%;
@@ -338,15 +348,18 @@ p.line_text span {
 }
 .profile-header-user-container{
   display:flex;
-  flex-direction:column;
+  
   padding-right:3%;
   padding-left:3%;
-  height:100%;
-  width:100%;
+  height:150px;
+  width:150px;
+  display:flex;
+  justify-content: center;
   border-radius:50%;
   background-color: #989795;
   justify-content: center;
   flex: 1 1 auto;
+  overflow:hidden;
 }
 
 .merchant-profile-total-revenue-card{

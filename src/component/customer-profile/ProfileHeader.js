@@ -26,15 +26,15 @@ function ProfileHeader() {
   },[])
 
   return (
-    <div class="profile-header-container">
+    <div class="profile-header-container w-full">
       <div class="flex p-3 ">
-        <div class="flex w-2/3 align-center  ">
+        <div class=" w-1/2 align-center overflow-hidden ">
           <div class="profile-header-user-container ">
-            <p class="text-white text-6xl font-bold text-center">{initials}</p>
+            <p class="mt-10 text-white text-6xl font-bold text-center">{initials}</p>
           </div>
         </div>
-        <div class="flex flex-col w-1/3 justify-center align-start ml-5 p-5 ">
-            <p class=" font-semibold text-3xl mb-2">Jane Doe</p>
+        <div class=" w-4/10 justify-center align-start ml-2 p-6 overflow-hidden ">
+            <p class=" font-semibold text-2xl mb-2">Jane Doe</p>
             <p class="text-lg text-gray-500 ">Customer</p>
       </div>
       </div>  

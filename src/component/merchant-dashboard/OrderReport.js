@@ -4,23 +4,23 @@ import OrderReportMealCard from "./OrderReportMealCard";
 
 function OrderReport() {
   return (
-    <div class='merchant-profile-most-ordered mr-3'>
+    <div class='merchant-profile-most-ordered '>
       <div class=' mt-5 flex w-full p-4 '>
         <div class='flex w-1/2'>
           <p class='text-xl font-bold'>Order Report</p>
         </div>
-      <div class='flex w-1/2 justify-end'>
-          <div class="merchant-profile-card-select">
-        <img src={require("../../assets/Filter.png")} alt="filter"/>
-          <select class='' >
-            <img src={require("../../assets/Filter.png")} alt="filter"/>
-            <option vlaue="Filter Order"><p class="font-semibold">Filter</p></option>
+        <div class="flex w-1/2">
+          <div class="flex w-1/4"></div>
+      <div class='flex w-full justify-end'>
+        <div class="merchant-profile-card-select">
+          <select class="bg-[#FFF5EE]" >
             <option value='Pending'>Pending</option>
             <option value='Completed'>Completed</option>
             <option value='Cancelled'>Cancelled</option>
           </select>
         </div>
         </div>
+      </div>
       </div>
       <tr class='flex w-full border-b-2 border-black p-5'>
         <th class='flex w-1/4 '>

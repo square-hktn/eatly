@@ -6,6 +6,7 @@ function TotalOrderedDishesCard() {
       <div class="flex w-full justify-between">
         <div class="flex w-1/2 jsutify-start">
           <img src={require("../../assets/tab.png")} alt="tab"/>
+          <div class="flex w-1/2"></div>
         </div>
         <div class="flex w-1/2 justify-end">
           <p class="text-red-700 text-end font-semibold">

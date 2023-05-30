@@ -7,16 +7,16 @@ function PaymentModal() {
   const[paypal,setPaypal]=useState(false)
   const[cash,setCash]=useState(false)
   return (
-    <div class="address-modal">
+    <div class="address_modal">
     <div class="confirmation_sidebar_wrapper">
-      <div class="flex flex-col">
-        <div class="flex flex-col">
+      <div class="flex-col">
+        <div class=" flex-col">
        <div class="flex w-full">
          <div class="flex w-1/2">
-              <p class="text-3xl font-semibold">Payment</p>
+              <p class="text-2xl font-semibold text-start">Payment</p>
           </div>
           <div class="flex w-1/2 justify-end">
-            <p class="font-bold text-xl">x</p>
+            <p class="font-bold text-xl text-end">x</p>
           </div>
        </div>
        <p class="text-md font-semibold text-[#99592A]">Order #12345</p>
@@ -124,19 +124,17 @@ function PaymentModal() {
             <input  class="address-modal-input-small"pattern="\d*"type="number"placeholder="" required="" />
       </div>
   </div>
-  <div class="address-modal-button-container w-5/6 ">
-    <div class="flex w-full justify-between  bottom-0">
-    <div class=" w-3/5 ml-2">
+  <div class="flex w-full justify-between mt-2 bottom-0">
+    <div class=" w-1/2 ml-2">
     <button class="address-modal-back-button">
       <p class="text-[#99592A] text-center font-semibold">Cancel</p>
     </button>
    </div>
-    <div class="w-full ml-2 mb-10">
+    <div class="w-1/2 ">
       <button class="address-modal-payment-button">
         <p class="text-white text-center font-semibold">Confirm Payment</p>
       </button>
      </div>
-    </div>
     </div>
       </div>
     </div>

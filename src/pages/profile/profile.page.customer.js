@@ -8,13 +8,14 @@ const CustomerProfile=()=> {
 
 
   return (
-    <div class="flex  w-full">
-      <div class="flex w-1/12">
-        <Sidebar/>
-      </div>
-      <div class="flex  w-11/12 h-screen pt-5 ml-5">
+    <div class="flex w-full mt-0">
+      <Sidebar class="ml-0"/>
+     <div class="flex">
+     
+      <div class="flex  w-11/12 pt-5 ">
+      
       <div class="flex flex-col w-full">
-        <div class="flex w-full mb-15 p-5">
+        <div class="flex w-full mb-15 p-5 justify-between">
           <div class="flex w-1/2">
             <div class="flex flex-col ml-3">
                <p class="text-2xl font-bold ">
@@ -24,6 +25,7 @@ const CustomerProfile=()=> {
             </div>
           </div>
           <div class="flex w-1/2 justify-end ">
+            <div class="flex w-1/2"></div>
              <PageSearch/>
           </div>
         </div>
@@ -31,7 +33,7 @@ const CustomerProfile=()=> {
           <div class="flex w-1/2 m-3 align-start h-full">
             <PersonalInfoCard/>
           </div>
-           <div class="flex flex-col w-1/2 ml-3 gap-x-3">
+           <div class="flex-col w-1/2 ml-3 gap-x-3 mt-2 h-full">
               <div class="flex h-1/3 mb-3">
                 <ProfileHeader/>
                </div>
@@ -39,6 +41,7 @@ const CustomerProfile=()=> {
               <MostOrderedCard/>
             </div>
         </div>
+       </div>
        </div>
       </div>
       </div>
