@@ -4,8 +4,8 @@ import MostOrderedMealCard from "./MostOrderedMealCard";
 function MostOrderedCard() {
   const numMeals = 7;
   return (
-    <div class='merchant-profile-card-container '>
-      <div class='w-full flex mt-4  border-b-2 border-gray-500 pb-4'>
+    <div class='merchant-profile-card-container h-full '>
+      <div class='w-full  overflow-hidden flex  border-b-2 border-gray-500 mt-4 p-3'>
         <div class='flex w-1/2'>
           <p class='text-xl font-bold'>Most ordered</p>
         </div>
@@ -16,14 +16,17 @@ function MostOrderedCard() {
         </div>
       </div>
       {numMeals > 2 ? (
-        <div class='flex flex-col border-gray-400   p-5 h-[40vh] overflow-y-scroll overflow-hidden mt-5'>
+        <div class=' flex-col border-gray-400   p-3 h-[60vh] overflow-y-scroll overflow-hidden mt-0'>
+          <MostOrderedMealCard />
+          <MostOrderedMealCard />
+          <MostOrderedMealCard />
           <MostOrderedMealCard />
           <MostOrderedMealCard />
           <MostOrderedMealCard />
           <MostOrderedMealCard />
         </div>
       ) : (
-        <div class='flex flex-col border-gray-400   pb-8  h-[40%] mt-5 '>
+        <div class=' flex-col border-gray-400   pb-8  h-full mt-5 '>
        <MostOrderedMealCard />
        <MostOrderedMealCard />
         </div>

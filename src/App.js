@@ -5,6 +5,7 @@ import ProtectedRoute from "./helpers/protectedRoute";
 import LoginPage from "./pages/core/login/Login";
 import SignupPage from "./pages/core/signup/Signup";
 import MerchantProfile from "./pages/profile/profile.page.merchant";
+import CustomerProfile from "./pages/profile/profile.page.customer";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
 
           <ProtectedRoute exact path="/signup" component={SignupPage} />
           <ProtectedRoute exact apth="/merchant-dashboard" component={MerchantProfile}/>
+          <ProtectedRoute exact apth="/customer-dashboard" component={CustomerProfile}/>
         </Switch>
       </Router>
     </div>

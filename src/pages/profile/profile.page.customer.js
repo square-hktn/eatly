@@ -1,8 +1,8 @@
 import React from 'react'
 import PageSearch from '../../component/PageSearch'
-import MostOrderedCard from '../../component/profile/MostOrderedCard'
-import PersonalInfoCard from '../../component/profile/PersonalInfoCard'
-import ProfileHeader from '../../component/profile/ProfileHeader'
+import MostOrderedCard from '../../component/customer-profile/MostOrderedCard'
+import PersonalInfoCard from '../../component/customer-profile/PersonalInfoCard'
+import ProfileHeader from '../../component/customer-profile/ProfileHeader'
 import Sidebar from '../../component/sidebar'
 const CustomerProfile=()=> {
 
