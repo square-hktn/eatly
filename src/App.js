@@ -17,8 +17,8 @@ function App() {
           <ProtectedRoute exact path="/signin" component={LoginPage} />
 
           <ProtectedRoute exact path="/signup" component={SignupPage} />
-          <ProtectedRoute exact apth="/merchant-dashboard" component={MerchantProfile}/>
-          <ProtectedRoute exact apth="/customer-dashboard" component={CustomerProfile}/>
+          <ProtectedRoute exact path="/merchant-dashboard" component={MerchantProfile}/>
+          <ProtectedRoute exact path="/customer-profile" component={CustomerProfile}/>
         </Switch>
       </Router>
     </div>

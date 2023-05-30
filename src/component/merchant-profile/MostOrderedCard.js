@@ -16,7 +16,7 @@ function MostOrderedCard() {
         </div>
       </div>
       {numMeals > 2 ? (
-        <div class=' flex-col border-gray-400   p-3 h-[60vh] overflow-y-scroll overflow-hidden mt-0'>
+        <div class=' flex-col border-gray-400 p-3 h-full overflow-y-scroll overflow-hidden mt-0'>
           <MostOrderedMealCard />
           <MostOrderedMealCard />
           <MostOrderedMealCard />
