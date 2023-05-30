@@ -21,7 +21,6 @@ const Homepage = (props) => {
   return (
     <div className={styles.Homepage_container}>
       <div className={styles.Big_container}>
-        <PaymentModal/>
         <div className={styles.logo_container}>
           <img src={logo} alt="eatly_logo" />
           <h1 className={styles.title}>Choose your login type</h1>

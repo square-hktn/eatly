@@ -7,6 +7,7 @@ function PaymentModal() {
   const[paypal,setPaypal]=useState(false)
   const[cash,setCash]=useState(false)
   return (
+    <div class="address-modal">
     <div class="confirmation_sidebar_wrapper">
       <div class="flex flex-col">
         <div class="flex flex-col">
@@ -30,14 +31,14 @@ function PaymentModal() {
           {creditCard?
           <div class="payment-modal-payment-options-box-selected mr-2">
               <div class="flex w-full justify-end">
-                <img src={require("../assets/checkmark-circle.png")} alt="check"/>
+                <img src={require("../../assets/checkmark-circle.png")} alt="check"/>
               </div>
              <div class="flex justify-center"onClick={()=>{
               setCreditCard(true)
               setPaypal(false)
               setCash(false)
              }}>
-               <img src={require("../assets/creditcard.png")} alt="creditcard"/>
+               <img src={require("../../assets/creditcard.png")} alt="creditcard"/>
              </div>
              <p class="text-sm text-center font-semibold">Credit Card</p>
           </div>:
@@ -47,7 +48,7 @@ function PaymentModal() {
             setCash(false)
            }}>
               <div class="flex justify-center">
-               <img src={require("../assets/creditcard.png")} alt="creditcard"/>
+               <img src={require("../../assets/creditcard.png")} alt="creditcard"/>
              </div>
              <p class="text-sm font-semibold text-gray-400">Credit Card</p>
            </div>
@@ -55,14 +56,14 @@ function PaymentModal() {
           {paypal?
           <div class="payment-modal-payment-options-box-selected mr-2">
               <div class="flex w-full justify-end">
-                <img src={require("../assets/checkmark-circle.png")} alt="check"/>
+                <img src={require("../../assets/checkmark-circle.png")} alt="check"/>
               </div>
              <div class="flex justify-center"onClick={()=>{
               setPaypal(true)
               setCreditCard(false)
               setCash(false)
              }}>
-               <img src={require("../assets/paypal.png")} alt="paypal"/>
+               <img src={require("../../assets/paypal.png")} alt="paypal"/>
              </div>
              <p class="text-sm text-center font-semibold">Paypal</p>
           </div>:
@@ -104,7 +105,7 @@ function PaymentModal() {
            </div>
           }
         </div>
-      </div>
+      </div> 
         <div class="flex flex-col mt-10">
           <p class="text-start font-semibold">Cardholder Name</p>
           <input type="text" class="address-modal-input mt-2" placeholder="Jane Doe" required/>
@@ -138,6 +139,7 @@ function PaymentModal() {
     </div>
     </div>
       </div>
+    </div>
     </div>
   )
 }
