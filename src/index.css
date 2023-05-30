@@ -275,3 +275,96 @@ p.line_text span {
 .sidebar_logo_circle {
   background: white;
 }
+
+
+.profile-header-container{
+  background-color: #FFF5EE;
+  display:flex;
+  width:100%;
+  border-radius:20px;
+  margin:2%;
+  padding:4%;
+  flex: 1 1 auto;
+}
+.profile-header-user-container{
+  display:flex;
+  flex-direction:column;
+  padding-right:3%;
+  padding-left:3%;
+  height:100%;
+  width:100%;
+  border-radius:50%;
+  background-color: #989795;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.merchant-profile-total-revenue-card{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin:2%;
+  height:100%;
+}
+
+.merchant-profile-total-ordered-card{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin:2%;
+  height:100%;
+}
+
+.merchant-profile-card-container{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin:2%;
+ 
+}
+
+.merchant-profile-card-select{
+ display:flex;
+ width:50%;
+ border-radius:20px;
+ border: black solid 2px;
+ justify-content:end;
+ padding:2%;;
+}
+
+.merchant-profile-most-ordered{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin-top:5%;
+  height:100%;
+}
+.rounded-border{
+  border-radius:20px;
+}
+
+.search-input{
+  border: 1px gray solid;
+  border-radius:20px;
+  display:flex;
+  width:50%;
+  height:60%;
+  padding:1%;
+}
+
