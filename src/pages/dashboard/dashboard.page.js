@@ -26,7 +26,7 @@ const Dashboard = (props) => {
   return (
     <div className={styles.dashboard_main}>
       <Sidebar />
- 
+      <PaymentModal/>
      
       <div className={styles.sidebarHinge}></div>
       <div className={styles.content}>

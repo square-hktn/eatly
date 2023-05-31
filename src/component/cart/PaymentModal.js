@@ -124,7 +124,7 @@ function PaymentModal() {
             <input  class="address-modal-input-small"pattern="\d*"type="number"placeholder="" required="" />
       </div>
   </div>
-  <div class="flex w-full justify-between mt-2 bottom-0">
+  <div class="flex w-full justify-between  bottom-0">
     <div class=" w-1/2 ml-2">
     <button class="address-modal-back-button">
       <p class="text-[#99592A] text-center font-semibold">Cancel</p>
