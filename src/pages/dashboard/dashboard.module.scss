@@ -42,4 +42,22 @@
   height: 200px;
   margin-top: 60px;
   cursor: pointer;
+  position: relative;
+}
+.cartCounter {
+  height: 30px;
+  width: 30px;
+  background: #2A160C;
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 25px;
+  top: 10px;
+}
+.totalCartItemCount {
+  color: white;
+  text-align: center;
 }

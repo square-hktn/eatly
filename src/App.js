@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch /*Route*/ } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./pages/homepage/Hompage";
 import Dashboard from "./pages/dashboard/dashboard.page";
 import ProtectedRoute from "./helpers/protectedRoute";
@@ -12,7 +12,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <ProtectedRoute exact path="/" component={Homepage} />
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/signin" component={LoginPage} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
           <ProtectedRoute
             exact

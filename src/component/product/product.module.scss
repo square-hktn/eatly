@@ -1,6 +1,6 @@
 .productContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, .2fr);
   grid-gap: 5px;
   @media only screen and (min-width: 320px) and (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
@@ -29,6 +29,7 @@
   left: 0;
   z-index: 10;
   margin: 0 20%;
+  overflow-x: hidden;
 }
 
 .productImage {
@@ -49,6 +50,7 @@
   text-align: center;
   font-size: 14px;
   font-weight: 500;
+  padding: 0 2px;
 }
 
 .span {
@@ -63,7 +65,7 @@
   text-align: center;
 }
 
-.btnSection {
+.btnSection, .cartSection {
   height: 50px;
   width: 90%;
   background: #99592a;
@@ -71,7 +73,12 @@
   margin: auto;
   position: relative;
 }
-
+.cartSection {
+  background: #fff5ee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .cartbtn {
   background: #99592a;
   width: 100%;
@@ -90,4 +97,29 @@
   margin-left: 20px;
   margin-top: 15px;
   position: absolute;
+}
+.productTexts {
+  margin: unset;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+.spanClass {
+  margin-top: 0;
+}
+.cartAction {
+  width: 50px;
+  height: 100%;
+  background: #99592a;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cartActionIcon {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  user-select: none;
 }
