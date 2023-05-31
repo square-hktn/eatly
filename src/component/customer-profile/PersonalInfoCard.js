@@ -5,41 +5,17 @@ function PersonalInfoCard() {
 
   const[male,setMale]=useState(false)
   const [female,setFemale]=useState(false)
-  const[firstname,setFirstname]=useState()
-  const[lastname,setLastname]=useState()
-  const[email,setEmail]=useState()
-  const[phone,setPhone]=useState()
-  const [location,setLocation]=useState()
+  const[firstname,setFirstname]=useState("Taye")
+  const[lastname,setLastname]=useState("Kehinde")
+  const[email,setEmail]=useState("test@test.com")
+  const[phone,setPhone]=useState('070330033003300')
+  const [location,setLocation]=useState("Lagos")
   const[isLoading,setIsLoading]=useState(false)
 
   useEffect(()=>{
+    
+  },[]);
 
-    const prom=new Promise((resolve,reject)=>{
-        axios.get("http://localhost:3022/problems").then((response)=>{
-          if(response.data.status=="success"){
-            const user=response.data.user
-            setFirstname(user.name.split(" ")[0])
-            setLastname(user.name.split(" ")[1])
-            setEmail(user.email)
-            setPhone(user.phone)
-            setLocation(user.location)
-            if(user.gender!=null){
-              if(user.gender=="female"){
-                setFemale(true)
-              }else{
-                setMale(true)
-              }
-            }
-          }
-        })
-        resolve()
-    })
-
-    prom.then(()=>{
-      setIsLoading(false)
-    })
-
-  },[])
   return (
     <div class="personal-info-container mb-15">
       <p class="text-[#99592A] text-2xl font-semibold">Personal Information</p>

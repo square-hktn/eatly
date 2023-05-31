@@ -87,7 +87,12 @@ const Login = (props) => {
         .then((response) => response.json())
         .then((data) => {
           const token = data.data.token;
+          const userId = data.data.userId;
+  
+          // save data in LC
           localStorage.setItem('token', token);
+          localStorage.setItem('userId', userId);
+
           if (data.status === "success") {
             toast.success("login is successful");
             setFormValues({});

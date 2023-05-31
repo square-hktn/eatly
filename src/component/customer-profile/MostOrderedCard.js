@@ -4,25 +4,11 @@ import { useState,useEffect } from 'react'
 import axios from 'axios'
 function MostOrderedCard() {
 
-  const[orders,setOrders]=useState()
+  // const[orders,setOrders]=useState()
   const[isLoading,setIsLoading]=useState(true)
 
   useEffect(()=>{
-
-    const prom=new Promise((resolve,reject)=>{
-      axios.get("http://localhost:3000").then((response)=>{
-        if(response.data.status=="success"){
-          setOrders(response.data.orders)
-          resolve()
-        }
-      })
-    })
-
-    prom.then(()=>{
-      setIsLoading(false)
-
-    })
-
+    
   },[])
 
   const numMeal=5
