@@ -22,6 +22,12 @@ function ConfirmationModal (props) {
   const handleClose = () => {
     props.setShow(false)
   }
+
+  const handlesubmit = () => {
+    handleClose();
+    props.setShowAddress(true);
+  }
+
   return (
     <div className={styles.confirmationModalWrapper}>
       <div className={styles.confimationHeader}>
@@ -69,7 +75,7 @@ function ConfirmationModal (props) {
         </div>
       </div>
       <div className={styles.btnSection}>
-      <button className={styles.nextBtn}>Next</button>
+      <button className={styles.nextBtn} disabled={getSubTotal() < 1} onClick={handlesubmit}>Next</button>
       </div>
     </div>
   )

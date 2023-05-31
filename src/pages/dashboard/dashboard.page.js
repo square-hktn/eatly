@@ -79,6 +79,7 @@ const Dashboard = (props) => {
       {showConfirmation && (
         <ConfirmationModal
           setShow={setShowConfirmation}
+          setShowAddress={setShow}
         />
       )}
     </div>

@@ -154,6 +154,11 @@ p {
   background: #99592A;
   height: 40px;
   border-radius: 20px;
+
+  &:disabled {
+    background:#989795;
+    cursor: pointer;
+  }
 }
 .btnSection{
   width: 100%;
