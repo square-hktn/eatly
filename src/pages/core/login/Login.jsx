@@ -76,7 +76,7 @@ const Login = (props) => {
         password: formValues.password,
       };
 
-      fetch("https://eatly-api.onrender.com/user/login", {
+      fetch("http://localhost:3009/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -86,7 +86,8 @@ const Login = (props) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          const token = data.data.token;
+          localStorage.setItem('token', token);
           if (data.status === "success") {
             toast.success("login is successful");
             setFormValues({});

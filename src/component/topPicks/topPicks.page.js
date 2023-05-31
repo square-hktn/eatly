@@ -1,16 +1,43 @@
-import { Fragment, useState } from "react";
-import { restaurants } from "../product/data";
+import { Fragment, useEffect, useState } from "react";
+import { Redirect } from 'react-router'
 import styles from './topPicks.module.scss';
 import downArrow from '../../assets/arrow-ios-down.svg';
+import { getHeadersWithAuth } from "../../api";
 
 const TopPicks = () => {
-const [selectedRestaurant, setSelectedRestaurant] = useState(restaurants[0]);
+  const [topPicks, setTopPicks] = useState(['All', '', '', '',]);
+  const [selectedRestaurant, setSelectedRestaurant] = useState('All');
+
+    useEffect(() => {
+      if(topPicks.length < 5) {
+        fetch("http://localhost:3009/restaurant/top", {
+          method: "GET",
+          headers: getHeadersWithAuth(),
+        })
+        .then((response) => {
+          if(response.status === 401) {
+            localStorage.removeItem('token');
+          }
+          return response.json()
+        })
+        .then((resp) => {
+          const data = resp.data;
+          const restaurantNames = data.map((v) => v.name);
+          restaurantNames.unshift("All")
+          setTopPicks(restaurantNames);
+        })
+        .catch((err) => {
+          console.log(err, "ERROR")
+        })
+      }
+    });
+
   return (
     <Fragment>
       <div className={styles.filters}>
         <div className={styles.filterSection}>
           {
-            Array.isArray(restaurants) && restaurants.map((info, key) => (
+            Array.isArray(topPicks) && topPicks.map((info, key) => (
               <div className={styles.restaurantSection} key={key} onClick={() => setSelectedRestaurant(info)}>
                 <span className={styles.restaurantName}>{info}</span>
                 <div className={(selectedRestaurant === info) ? styles.active : ''}></div>
@@ -19,8 +46,10 @@ const [selectedRestaurant, setSelectedRestaurant] = useState(restaurants[0]);
           }
         </div>
         <div className={styles.filterDropDown}>
+          <div className={styles.filterContainer}>
             <img src={downArrow} alt="down arrow" className={styles.downArrow}/>
-            <h5 className={styles.filterDropdownLabel}>Price - Low to High</h5>
+          </div>
+          <h5 className={styles.filterDropdownLabel}>Price - Low to High</h5>
         </div>
       </div>
     </Fragment>
