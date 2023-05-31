@@ -12,6 +12,7 @@ const Sidebar = (props) => {
   const navigate = useHistory();
 
   const handleProfile = () => {
+    setActiveIcon("profile")
     navigate.push("/customer-profile");
   };
 
@@ -53,7 +54,7 @@ const Sidebar = (props) => {
               ? "sidebar_logo_circle_active"
               : "sidebar_logo_circle"
           }
-          onClick={() => setActiveIcon("profile")}
+          onClick={() => handleProfile()}
         >
           <img
             className="sidebar_logo_image"
