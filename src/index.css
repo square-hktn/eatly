@@ -75,7 +75,7 @@
 
 .confirmation_sidebar_wrapper {
   width: 40%;
-  height: 100%;
+  height: 70%;
   background: #fff5ee;
   display: flex;
   flex-direction: column;
@@ -188,6 +188,8 @@ p.line_text span {
 
 }
 
+
+
 .address-modal-back-button {
   border: #99592a 1px solid;
   color: #99592a;
@@ -227,6 +229,64 @@ p.line_text span {
   width: 100%;
 }
 
+.most-ordered-container{
+  background-color: #FFF5EE;
+  display:flex;
+  border-radius:20px;
+  flex-direction: column;
+  margin-top:5%;
+  padding:5%;
+  width:100%;
+
+}
+.personal-info-container{
+  background-color: #FFF5EE;
+  display:flex;
+  width:100%;
+  border-radius:20px;
+  flex-direction: column;
+  padding-right:8%;
+  padding-left:8%;
+  padding-top:3%;
+  flex: 1 1 auto;
+  height:full;
+}
+
+.personal-info-gender-select{
+  border-radius:50%;
+  border: gray 1px solid;
+  display:flex;
+  padding:2%;
+  margin-left:15%;
+  aspect-ratio : 1 / 1;
+  
+}
+
+
+.personal-info-gender-select-selected{
+  border-radius:50%;
+  border: gray 1px solid;
+  display:flex;
+  padding:2%;
+  margin-left:15%;
+  aspect-ratio : 1 / 1;
+  background-color:#99592A;
+  z-index:0;
+}
+
+.personal-info-input{
+  border-radius:20px;
+  padding:10px;
+  border:#99592A solid 1px;
+}
+
+.very-round{
+  border-radius:20px;
+}
+.send-to-bottom{
+  margin-bottom: 0px;
+  position: absolute; bottom: 5%; 
+}
 .dashboard_main {
   width: 100%;
   margin: auto;
@@ -275,3 +335,99 @@ p.line_text span {
 .sidebar_logo_circle {
   background: white;
 }
+
+
+.profile-header-container{
+  background-color: #FFF5EE;
+  display:flex;
+  width:100%;
+  border-radius:20px;
+  margin:2%;
+  padding:4%;
+  flex: 1 1 auto;
+}
+.profile-header-user-container{
+  display:flex;
+  
+  padding-right:3%;
+  padding-left:3%;
+  height:150px;
+  width:150px;
+  display:flex;
+  justify-content: center;
+  border-radius:50%;
+  background-color: #989795;
+  justify-content: center;
+  flex: 1 1 auto;
+  overflow:hidden;
+}
+
+.merchant-profile-total-revenue-card{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin:2%;
+  height:100%;
+}
+
+.merchant-profile-total-ordered-card{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin:2%;
+  height:100%;
+}
+
+.merchant-profile-card-container{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin:2%;
+ 
+}
+
+.merchant-profile-card-select{
+ display:flex;
+ width:60%;
+ border-radius:20px;
+ border: black solid 2px;
+ justify-content:end;
+ padding:2%;;
+}
+
+.merchant-profile-most-ordered{
+  display:flex;
+  width:100%;
+  border-radius:15px;
+  background-color: #FFF5EE;
+  padding:3%;
+  display:flex;
+  flex-direction:column;
+  margin-top:5%;
+  height:100%;
+}
+.rounded-border{
+  border-radius:20px;
+}
+
+.search-input{
+  border: 1px gray solid;
+  border-radius:20px;
+  display:flex;
+  width:50%;
+  height:60%;
+  padding:1%;
+}
+

@@ -4,6 +4,9 @@ import clientImage from "../../assets/client_image.png";
 import merchantImage from "../../assets/merchant_image.png";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import AddressModal from "../../component/cart/AddressModal";
+import ConfirmationModal from "../../component/cart/ConfirmationModal";
+import PaymentModal from "../../component/cart/PaymentModal";
 
 const Homepage = (props) => {
   const [selectedRole, setSelectedRole] = useState("customer");
