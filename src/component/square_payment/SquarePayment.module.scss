@@ -10,15 +10,21 @@
 }
 
 .modal_content {
-  width: 40%;
-  height: 50%;
+  width: 35%;
+  height: 60%;
   background: #fff5ee;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 2%;
   background: #fff5ee;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.btn_container {
+  margin-right: 2rem;
+  .close_btn {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #99592a;
+  }
 }
