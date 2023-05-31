@@ -6,7 +6,7 @@ import LoginPage from "./pages/core/login/Login";
 import SignupPage from "./pages/core/signup/Signup";
 import MerchantDashboard from "./pages/dashboard/dashboard.page.merchant";
 import CustomerProfile from "./pages/profile/profile.page.customer";
-import MerchantProductList from "./pages/merchant-product-list/merchant.product.list";
+import MerchantProductList from "./pages/merchant-product-list/merchant.productlist.page";
 function App() {
   return (
     <div className="App">
