@@ -76,7 +76,7 @@ const Login = (props) => {
         password: formValues.password,
       };
 
-      fetch("http://localhost:3009/user/login", {
+      fetch("https://eatly-api.onrender.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

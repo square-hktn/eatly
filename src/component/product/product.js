@@ -11,7 +11,7 @@ const Product = (props) => {
 
   useEffect(() => {
     if(products.length < 1) {
-      fetch("http://localhost:3009/product", {
+      fetch("https://eatly-api.onrender.com/product", {
         method: "GET",
         headers: getHeadersWithAuth(),
       })
@@ -23,11 +23,7 @@ const Product = (props) => {
       })
       .then((resp) => {
         const data = resp.data;
-        console.log(data, "data")
         setProducts(data);
-        // const restaurantNames = data.map((v) => v.name);
-        // restaurantNames.unshift("All")
-        // setTopPicks(restaurantNames);
       })
       .catch((err) => {
         console.log(err, "ERROR")

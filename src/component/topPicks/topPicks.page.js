@@ -10,7 +10,7 @@ const TopPicks = () => {
 
     useEffect(() => {
       if(topPicks.length < 5) {
-        fetch("http://localhost:3009/restaurant/top", {
+        fetch("https://eatly-api.onrender.com/restaurant/top", {
           method: "GET",
           headers: getHeadersWithAuth(),
         })
