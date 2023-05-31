@@ -5,7 +5,7 @@ import styles from "./dashboard.module.scss";
 import cartIcon from "../../assets/cart-icon.svg";
 import locationIcon from "../../assets/Location.svg";
 import SquarePayment from "../../component/square_payment/SquarePayment";
-import AddressModal from "../../component/cart/AddressModal";
+import AddressModal from "../../component/addressModal/AddressModal";
 import ConfirmationModal from "../../component/confirmationModal/ConfirmationModal";
 
 const Dashboard = (props) => {

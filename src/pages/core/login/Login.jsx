@@ -39,18 +39,21 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    validate(formValues);
-    setFormError(validate(formValues));
-    setIsButtonDisabled(Object.keys(formError).length > 0); // Disable button if there are form errors
-  }, [formValues, touched, formError]);
+    const errors = validate(formValues); 
+    setFormError(errors); 
+    setIsButtonDisabled(Object.keys(errors).length > 0); 
+  }, [formValues]); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
 
     setTouched((prevState) => ({
       ...prevState,
-      [e.target.name]: true,
+      [name]: true,
     }));
   };
 
@@ -88,10 +91,10 @@ const Login = (props) => {
         .then((data) => {
           const token = data.data.token;
           const userId = data.data.userId;
-  
+
           // save data in LC
-          localStorage.setItem('token', token);
-          localStorage.setItem('userId', userId);
+          localStorage.setItem("token", token);
+          localStorage.setItem("userId", userId);
 
           if (data.status === "success") {
             toast.success("login is successful");

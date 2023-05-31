@@ -74,10 +74,10 @@ const Signup = (props) => {
   };
 
   useEffect(() => {
-    validate(formValues);
-    setFormError(validate(formValues));
-    setIsButtonDisabled(Object.keys(formError).length > 0); // Disable button if there are form errors
-  }, [formValues, touched, formError]);
+    const errors = validate(formValues);
+    setFormError(errors);
+    setIsButtonDisabled(Object.keys(errors).length > 0);
+  }, [formValues]);
 
   const handlesubmit = (e) => {
     e.preventDefault();
