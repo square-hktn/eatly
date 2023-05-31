@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./Login.module.scss";
 import logo from "../../../assets/logo_eatly1.svg";
 import login_image from "../../../assets/Group 34515.png";
@@ -14,34 +16,10 @@ const Login = (props) => {
   const [formError, setFormError] = useState({});
   const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Button disabled state
   const [isLoading, setIsLoading] = useState(false);
-  const [messageType, setMessageType] = useState("");
-  const [showToast, setShowToast] = useState(false);
+
   const { search } = useLocation();
   const role = search?.split("?")[1];
   let history = useHistory();
-
-  useEffect(() => {
-    validate(formValues);
-    setFormError(validate(formValues));
-    setIsButtonDisabled(Object.keys(formError).length > 0); // Disable button if there are form errors
-  }, [formValues, touched, formError]);
-
-  if (role !== "merchant" && role !== "customer") {
-    setMessageType("invalid role");
-    setShowToast(true);
-    //window.alert("invalid role");
-    return history.push(`/`);
-  }
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-
-    setTouched((prevState) => ({
-      ...prevState,
-      [e.target.name]: true,
-    }));
-  };
 
   const validate = (values) => {
     const errors = {};
@@ -58,6 +36,22 @@ const Login = (props) => {
       errors.password = "Password is required";
     }
     return errors;
+  };
+
+  useEffect(() => {
+    validate(formValues);
+    setFormError(validate(formValues));
+    setIsButtonDisabled(Object.keys(formError).length > 0); // Disable button if there are form errors
+  }, [formValues, touched, formError]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+
+    setTouched((prevState) => ({
+      ...prevState,
+      [e.target.name]: true,
+    }));
   };
 
   const handlesubmit = (e) => {
@@ -94,15 +88,15 @@ const Login = (props) => {
         .then((data) => {
           console.log(data);
           if (data.status === "success") {
-            setMessageType("login is successful");
-            setShowToast(true);
+            toast.success("login is successful");
             setFormValues({});
             setFormError({});
             e.target.reset();
-            history.push("/dashboard");
+            setTimeout(() => {
+              history.push("/dashboard");
+            }, 2000);
           } else {
-            setMessageType(data.message || data.json.details[0].message);
-            setShowToast(true);
+            toast.error(data.message || data.json.details[0].message);
           }
         })
         .catch((error) => console.log(error))
@@ -112,91 +106,95 @@ const Login = (props) => {
     }
   };
 
+  if (role !== "merchant" && role !== "customer") {
+    toast.warning("invalid role");
+    setTimeout(() => {
+      return history.push(`/`);
+    }, 2000);
+  }
   return (
-    <section className={styles.sigin_container}>
-      <div className={styles.big_container}>
-        <div className={styles.left_container}>
-          <div className={styles.logo_container}>
-            <img src={logo} alt="logo" />
-          </div>
-          <h1 className={styles.title}>Sign In</h1>
-          <form className={styles.form} onSubmit={handlesubmit}>
-            <div className={styles.form_group}>
-              <label className={styles.label_field}>Email</label>
-              <input
-                type="email"
-                className={styles.input_field}
-                name="email"
-                value={formValues.email}
-                onChange={handleChange}
-              />
-              <div className="errorMsg">{touched.email && formError.email}</div>
+    <>
+      <ToastContainer />
+      <section className={styles.sigin_container}>
+        <div className={styles.big_container}>
+          <div className={styles.left_container}>
+            <div className={styles.logo_container}>
+              <img src={logo} alt="logo" />
             </div>
-            <div className="form_group">
-              <label className={styles.label_field}>Password</label>
-              <input
-                type="password"
-                className={styles.input_field}
-                name="password"
-                value={formValues.password}
-                onChange={handleChange}
-              />
-              <div className="errorMsg">
-                {touched.password && formError.password}
-              </div>
-            </div>
-            <div className={styles.bottom_container}>
-              <div className={styles.checkbox_container}>
-                <input type="checkbox" className={styles.checkbox_field} />
-                <label className={styles.label_field}>Remember me?</label>
-              </div>
-              <div>
-                <Link to="/#" className={styles.password_text}>
-                  Forget Password
-                </Link>
-              </div>
-            </div>
-            <div className={styles.btn_container}>
-              <button className={styles.btn} disabled={isButtonDisabled}>
-                {isLoading ? (
-                  <div className="flex justify-center items-center">
-                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-5 w-5" />
-                  </div>
-                ) : (
-                  "Sign in"
-                )}
-              </button>
-            </div>
-          </form>
-          {showToast && (
-            <div className={styles.ToastContainer}>
-              <div className={styles.centered}>
-                <div
-                  className={`${styles.toast} toast white py-2 px-4 rounded`}
-                >
-                  <div
-                    className="flex justify-end text-lg font-bold cursor-pointer"
-                    onClick={() => setShowToast(false)}
-                  >
-                    x
-                  </div>
-                  <h1 className={styles.toastTitle}>{messageType}</h1>
+            <h1 className={styles.title}>Sign In</h1>
+            <form className={styles.form} onSubmit={handlesubmit}>
+              <div className={styles.form_group}>
+                <label className={styles.label_field}>Email</label>
+                <input
+                  type="email"
+                  className={styles.input_field}
+                  name="email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                />
+                <div className="errorMsg">
+                  {touched.email && formError.email}
                 </div>
               </div>
-            </div>
-          )}
-          <h3 className={styles.subtext}>
-            Don't have an account?{" "}
-            <Link to="/signup" className={styles.link}>
-              Click here to sign up
-            </Link>
-          </h3>
+              <div className="form_group">
+                <label className={styles.label_field}>Password</label>
+                <input
+                  type="password"
+                  className={styles.input_field}
+                  name="password"
+                  value={formValues.password}
+                  onChange={handleChange}
+                />
+                <div className="errorMsg">
+                  {touched.password && formError.password}
+                </div>
+              </div>
+              <div className={styles.bottom_container}>
+                <div className={styles.checkbox_container}>
+                  <input type="checkbox" className={styles.checkbox_field} />
+                  <label className={styles.label_field}>Remember me?</label>
+                </div>
+                <div>
+                  <Link to="/#" className={styles.password_text}>
+                    Forget Password
+                  </Link>
+                </div>
+              </div>
+              <div className={styles.btn_container}>
+                <button className={styles.btn} disabled={isButtonDisabled}>
+                  {isLoading ? (
+                    <div aria-label="Loading..." role="status">
+                      <svg className="h-6 w-6 animate-spin" viewBox="3 3 18 18">
+                        <path
+                          className="fill-gray-200"
+                          d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
+                        ></path>
+                        <path
+                          className="fill-gray-800"
+                          d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    "Sign in"
+                  )}
+                </button>
+              </div>
+            </form>
+
+            <h3 className={styles.subtext}>
+              Don't have an account?{" "}
+              <Link to="/signup" className={styles.link}>
+                Click here to sign up
+              </Link>
+            </h3>
+          </div>
+          <div className={styles.right_container}>
+            <img src={login_image} alt="login_image" className={styles.image} />
+          </div>
         </div>
-        <div className={styles.right_container}>
-          <img src={login_image} alt="login_image" className={styles.image} />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 export default Login;

@@ -6,9 +6,8 @@ import cartIcon from "../../assets/cart-icon.svg";
 import locationIcon from "../../assets/Location.svg";
 import SquarePayment from "../../component/square_payment/SquarePayment";
 import AddressModal from "../../component/cart/AddressModal";
-import PaymentModal from "../../component/cart/PaymentModal";
+//import PaymentModal from "../../component/cart/PaymentModal";
 import ConfirmationModal from "../../component/cart/ConfirmationModal";
-
 
 const Dashboard = (props) => {
   const [show, setShow] = useState(false);
@@ -26,8 +25,7 @@ const Dashboard = (props) => {
   return (
     <div className={styles.dashboard_main}>
       <Sidebar />
-      <PaymentModal/>
-     
+
       <div className={styles.sidebarHinge}></div>
       <div className={styles.content}>
         <Product />
@@ -56,7 +54,7 @@ const Dashboard = (props) => {
           setShowPaymentModal={setShowPaymentModal}
         />
       )}
-      {showPaymentModal && <SquarePayment address={address}/>}
+      {showPaymentModal && <SquarePayment address={address} />}
     </div>
   );
 };
