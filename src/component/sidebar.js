@@ -5,10 +5,15 @@ import home from "../assets/home.svg";
 import notification from "../assets/notification.svg";
 import cart from "../assets/cart.svg";
 import profile from "../assets/profile.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Sidebar = (props) => {
   const [activeIcon, setActiveIcon] = useState("home");
+  const navigate = useHistory();
+
+  const handleProfile = () => {
+    navigate.push("/customer-profile");
+  };
 
   return (
     <div className="sidebar_wrapper">
@@ -50,7 +55,12 @@ const Sidebar = (props) => {
           }
           onClick={() => setActiveIcon("profile")}
         >
-          <img className="sidebar_logo_image" alt="eatlyLogo" src={profile} />
+          <img
+            className="sidebar_logo_image"
+            alt="eatlyLogo"
+            src={profile}
+
+          />
         </div>
         <div
           className={

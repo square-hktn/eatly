@@ -54,7 +54,12 @@ const Dashboard = (props) => {
           setShowPaymentModal={setShowPaymentModal}
         />
       )}
-      {showPaymentModal && <SquarePayment address={address} />}
+      {showPaymentModal && (
+        <SquarePayment
+          address={address}
+          setShowPaymentModal={setShowPaymentModal}
+        />
+      )}
     </div>
   );
 };
