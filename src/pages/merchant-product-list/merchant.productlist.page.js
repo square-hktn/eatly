@@ -5,6 +5,7 @@ import PageSearch from '../../component/PageSearch'
 import styles from '../../component/product-list/product.module.scss';
 import AddNewProduct from '../../component/product-list/AddNewProduct';
 import { useState } from 'react'
+import AddNewDishModal from '../../component/product-list/AddNewDishModal';
 function MerchantProductList() {
 
   const[chinaHut,setChinaHut]=useState(false)

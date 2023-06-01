@@ -285,6 +285,10 @@ p.line_text span {
 .very-round {
   border-radius: 20px;
 }
+.very-round-border {
+  border-radius: 20px;
+  border:1px solid black;
+}
 .send-to-bottom {
   margin-bottom: 0px;
   position: absolute;
@@ -421,6 +425,23 @@ p.line_text span {
 .rounded-border {
   border-radius: 20px;
 }
+.add-new-dish-modal-input{
+  border:1px black solid;
+  border-radius:20px;
+  width:100%;
+  padding:5%;
+  margin-top:15%;
+  padding:8%;
+}
+.add-new-dish-modal-browse-button{
+  width:100%;
+  border-radius:35px;
+  background-color:#99592a;
+  margin-top:15%;
+  height:60%;
+  margin-left:2%;
+  padding:5%;
+}
 
 .search-input {
   border: 1px gray solid;
@@ -430,3 +451,4 @@ p.line_text span {
   height: 60%;
   padding: 1%;
 }
+
