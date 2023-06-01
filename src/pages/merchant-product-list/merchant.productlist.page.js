@@ -47,7 +47,7 @@ function MerchantProductList() {
       </div>
     </div>
     <div class="flex w-full justify-start mt-10 ml-10">
-        <div class="flex w-3/4 border-b-2 border-gray-600 mt-5  ml-2 justify-between">
+        <div class="flex w-[50%]  border-b-2 border-gray-600 mt-5  ml-2 justify-between">
            {
               chinaHut?
               <button class="p-0 border-b-4 border-[#99592a]">
