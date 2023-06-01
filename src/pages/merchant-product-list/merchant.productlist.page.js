@@ -6,6 +6,8 @@ import styles from '../../component/product-list/product.module.scss';
 import AddNewProduct from '../../component/product-list/AddNewProduct';
 import { useState } from 'react'
 import AddNewDishModal from '../../component/product-list/AddNewDishModal';
+import EditMealModal from '../../component/product-list/EditMealModal';
+
 function MerchantProductList() {
 
   const[chinaHut,setChinaHut]=useState(false)
@@ -14,15 +16,28 @@ function MerchantProductList() {
   const[healthFood,setHealthFood]=useState(false)
   const[sweetPalace,setSweetPalace]=useState(false)
   const[showNewProduct,setShowNewProduct]=useState(false)
-
-  function handleModal(){
+  const[showEditModal,setShowEditModal]=useState(false)
+ 
+  function handleAddNewMealModal(){
     setShowNewProduct(false)
+  }
+  function handleEditMealModal(){
+    setShowEditModal(true)
+  }
+  function closeEditMealModal(){
+    setShowEditModal(false)
   }
   return (
 <div class="flex  w-full ">
     {
       showNewProduct?
-      <AddNewDishModal show={handleModal}/>
+      <AddNewDishModal show={handleAddNewMealModal}/>
+      : 
+      <div></div>
+    }
+     {
+      showEditModal?
+      <EditMealModal show={closeEditMealModal}/>
       :
       <div></div>
     }
@@ -47,7 +62,7 @@ function MerchantProductList() {
       </div>
     </div>
     <div class="flex w-full justify-start mt-10 ml-10">
-        <div class="flex w-[50%]  border-b-2 border-gray-600 mt-5  ml-2 justify-between">
+        <div class="flex w-[60%]  border-b-2 border-gray-600 mt-5  ml-2 justify-between">
            {
               chinaHut?
               <button class="p-0 border-b-4 border-[#99592a]">
@@ -159,12 +174,12 @@ function MerchantProductList() {
           }}>
             <AddNewProduct/>
           </button>
-           <Product/>
-           <Product/>
-           <Product/>
-           <Product/>
-           <Product/>
-           <Product/>
+           <Product show={handleEditMealModal}/>
+           <Product show={handleEditMealModal}/>
+           <Product show={handleEditMealModal}/>
+           <Product show={handleEditMealModal}/>
+           <Product show={handleEditMealModal}/>
+           <Product show={handleEditMealModal}/>
 
             
       </div>
