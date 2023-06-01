@@ -16,7 +16,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 80%;
+  height: 55%;
   background: #fff5ee;
   display: flex;
   flex-direction: column;
@@ -170,4 +170,9 @@
   display: flex;
   align-items: flex-start;
   text-align: left;
+}
+
+form {
+  margin: unset;
+  padding-top: 5%;
 }

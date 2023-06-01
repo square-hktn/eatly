@@ -25,3 +25,11 @@ export const getHeadersWithAuth = () => {
     Authorization: `Bearer ${localStorage.getItem('token')}`,
   }
 }
+
+export const handleLogout = () => {
+  localStorage.clear();
+}
+
+export const axiosInstance = axios.create({
+  headers: getHeadersWithAuth(),
+})
