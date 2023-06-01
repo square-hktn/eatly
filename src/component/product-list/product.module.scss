@@ -1,0 +1,140 @@
+.productContainer {
+  display: grid;
+  padding:3%;
+  grid-template-columns: repeat(5, .2fr);
+  grid-gap: 5px;
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (min-width: 901px) and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productCard {
+  height: 350px;
+  width: 200px;
+  border: 1px solid white;
+  position: relative;
+}
+.foodCircle {
+  height: 115px;
+  width: 115px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  right:10%;
+  z-index: 10;
+  margin: 0 20%;
+  overflow-x: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+}
+.productDetails {
+  height: 90%;
+  width: 100%;
+  background: #fff5ee;
+  border-radius: 20px;
+  margin-top: 30px;
+  display: flex;
+  flex-flow: column;
+}
+.addNewProductDetails {
+  height: 90%;
+  width: 100%;
+  background: #fff5ee;
+  border:dashed #99592a 2px;
+  border-radius: 20px;
+  margin-top: 30px;
+  display: flex;
+  flex-flow: column;
+}
+.productName {
+  margin-top: 50%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 2px;
+}
+
+.span {
+  color: #1a1817;
+  font-weight: 300;
+}
+
+.smalltitle {
+  color: #99592a;
+  font-size: smaller;
+  width: 100%;
+  text-align: center;
+}
+
+.btnSection, .cartSection {
+  height: 50px;
+  width: 90%;
+  background: #99592a;
+  border-radius: 25px;
+  margin: auto;
+  position: relative;
+}
+.cartSection {
+  background: #fff5ee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cartbtn {
+  background: #99592a;
+
+  justify-content:center;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+ 
+}
+.addImage {
+  margin: auto;
+  margin-left: 20px;
+  margin-top: 15px;
+  position: absolute;
+}
+.productTexts {
+  margin: unset;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+.spanClass {
+  margin-top: 0;
+}
+.cartAction {
+  width: 50px;
+  height: 100%;
+  background: #99592a;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cartActionIcon {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  user-select: none;
+}
+
+.add-new-dish-modal-input{
+  border:1px black;
+  border-radius:20px;
+  width:75%;
+  padding:5%;
+}
