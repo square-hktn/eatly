@@ -13,12 +13,23 @@ function MerchantProductList() {
   const[italianPlace,setItalianPlace]=useState(false)
   const[healthFood,setHealthFood]=useState(false)
   const[sweetPalace,setSweetPalace]=useState(false)
+  const[showNewProduct,setShowNewProduct]=useState(false)
+
+  function handleModal(){
+    setShowNewProduct(false)
+  }
   return (
 <div class="flex  w-full ">
+    {
+      showNewProduct?
+      <AddNewDishModal show={handleModal}/>
+      :
+      <div></div>
+    }
   <Sidebar class="mt-0"/>
     <div class="flex w-1/12">
     </div>
-    <div class="flex-col w-11/12 h-screen pt-5 ml-5 p-5 mb-10 mr-5 overflow-hidden">
+    <div class="flex-col w-11/12 h-screen pt-5 ml-5 p-5 mb-10 mr-5">
     <div class=" flex-col w-full p-5">
       <div class="flex w-full">
         <div class="flex w-1/2">
@@ -141,9 +152,13 @@ function MerchantProductList() {
 
         </div>
     </div>
-    <div class="flex w-full align-top justify-between mt-5">
+    <div class="flex w-full align-top justify-between mt-5 h-4/5 overflow-y-scroll overflow-hidden">
       <div className={styles.productContainer}>
-          <AddNewProduct/>
+          <button onClick={()=>{
+            setShowNewProduct(true)
+          }}>
+            <AddNewProduct/>
+          </button>
            <Product/>
            <Product/>
            <Product/>

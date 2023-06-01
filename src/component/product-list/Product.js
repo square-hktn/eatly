@@ -26,9 +26,9 @@ function Product() {
       
       <div className={styles.btnSection}>
       <button className={styles.cartbtn}>
-        <span div class="flex">
-          <img src={require("../../assets/pencil.png")} alt="edit"/>
-         <p class="text-white ml-0">Edit</p>
+        <span div class="flex justify-center p-5">
+          <img src={require("../../assets/pencil.png")} alt="edit" class="m-1 mt-3"/>
+         <p class="text-white ml-0 mt-3">Edit</p>
         </span>
         
       </button>

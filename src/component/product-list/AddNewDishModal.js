@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AddNewDishModal() {
+function AddNewDishModal({show}) {
   return (
     <div className="address_modal">
     <div className="confirmation_sidebar_wrapper">
@@ -14,7 +14,9 @@ function AddNewDishModal() {
           </p>
         </div>
         <div className="flex justify-end w-1/2">
-          <button className="close-btn " >
+          <button className="close-btn "onClick={()=>{
+            show()
+          }} >
            <p class="font-semibold text-2xl">x</p>
           </button>
         </div>
