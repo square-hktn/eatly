@@ -1,34 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SquarePayment.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { CreditCard, PaymentForm } from "react-square-web-payments-sdk";
-import axios from "axios";
+import { axiosInstance } from "../../api";
+import { squareApplicationId, squareLocationId, baseUrl } from "../../config";
 
 const MyPaymentForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [familyName, setFamilyName] = useState('');
+  const [givenName, setGivenName] = useState('');
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    axiosInstance.get(`${baseUrl}/user/${userId}`)
+      .then((response) => {
+        const name = response.data.data.name;
+        setFamilyName(name.split[1]);
+        setGivenName(name.split[0]);
+      })
+      .catch((err) => {
+        toast.error("User query failed");
+        props.setShowPaymentModal(false);
+      })
+  }, []);
 
   const handleCardTokenizeResponse = async (token, buyer) => {
     setIsLoading(true);
+    const userCart = localStorage.getItem('userCart');
+    let cartData = [];
+    if(userCart) {
+      cartData = JSON.parse(userCart);
+    }
 
     const body = {
-      locationId: "LKQYD715WAF8J",
-      sourceId: token.token,
-      idempotencyKey: crypto.randomUUID(),
+      payment: {
+        sourceId: token.token,
+        idempotencyKey: crypto.randomUUID(),
+      },
+      address: props.address,
+      products: cartData.map((v) => {
+        return {
+          id: v.id,
+          qty: v.qty,
+          sumTotal: ((v.cost * v.qty) % 1 === 0) ? (v.cost * v.qty) + .5 : (v.cost * v.qty).toFixed(2),
+          unitCost: v.cost,
+        }
+      }),
+      totalCost: props.subTotal
     };
 
     try {
-      const response = await axios.post(
-        "https://eatly-api.onrender.com/payment",
+      await axiosInstance.post(
+        `${baseUrl}/order`,
         body
       );
-      console.log(response);
       toast.success("Payment successful");
+      setIsLoading(false);
+      props.setShowPaymentModal(false);
       // Handle successful tokenization
       // You can make an API call to your server to process the payment using the token
     } catch (error) {
-      console.log(error);
       toast.error("Try again");
       // Handle tokenization error
       // Display an error message to the user or take appropriate action
@@ -38,10 +70,9 @@ const MyPaymentForm = (props) => {
   };
 
   const handleCardTokenizeError = (error) => {
-    console.log(error);
-    toast.error("Try again");
     // Handle tokenization error
     // Display an error message to the user or take appropriate action
+    toast.error("Try again");
   };
 
   const cancel = () => {
@@ -74,22 +105,22 @@ const MyPaymentForm = (props) => {
           )}
           {/* Render the spinner animation */}
           <PaymentForm
-            applicationId="sandbox-sq0idb-YI3wzf4LtWsHowjjYJsTGw"
+            applicationId={squareApplicationId}
             cardTokenizeResponseReceived={handleCardTokenizeResponse}
             cardTokenizeErrorReceived={handleCardTokenizeError}
             createVerificationDetails={() => ({
-              amount: "1000",
+              amount: props.subTotal,
               billingContact: {
                 addressLines: [props.address.street],
-                familyName: "Doe",
-                givenName: "John",
+                familyName,
+                givenName,
                 countryCode: "GB",
-                city: props.address.state,
+                city: props.address.city,
               },
               currencyCode: "USD",
               intent: "CHARGE",
             })}
-            locationId="LKQYD715WAF8J"
+            locationId={squareLocationId}
           >
             <CreditCard
               buttonProps={{

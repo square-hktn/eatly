@@ -6,6 +6,7 @@ import notification from "../assets/notification.svg";
 import cart from "../assets/cart.svg";
 import profile from "../assets/profile.svg";
 import { Link, useHistory } from "react-router-dom";
+import { handleLogout } from "../api";
 
 const Sidebar = (props) => {
   const [activeIcon, setActiveIcon] = useState("home");
@@ -15,6 +16,11 @@ const Sidebar = (props) => {
     setActiveIcon("profile")
     navigate.push("/customer-profile");
   };
+
+  const handleUserLogout = () => {
+    handleLogout();
+    navigate.push("/");
+  }
 
   return (
     <div className="sidebar_wrapper">
@@ -74,7 +80,7 @@ const Sidebar = (props) => {
           <img className="sidebar_logo_image" alt="eatlyLogo" src={cart} />
         </div>
       </div>
-      <img className="sidebar_logo_image_logout" alt="eatlyLogo" src={logout} />
+      <img className="sidebar_logo_image_logout" alt="eatlyLogo" onClick={handleUserLogout} src={logout} />
     </div>
   );
 };

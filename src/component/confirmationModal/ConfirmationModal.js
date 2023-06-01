@@ -14,7 +14,9 @@ function ConfirmationModal (props) {
     let cartData = [];
     if(userCart) {
       cartData = JSON.parse(userCart);
-      return (cartData.reduce((prev, curr) => prev + (curr.qty * curr.cost), 0)).toFixed(2);
+      const total = (cartData.reduce((prev, curr) => prev + (curr.qty * curr.cost), 0)).toFixed(2);
+      props.setSubTotal(total);
+      return total;
     }
     return 0;
   }

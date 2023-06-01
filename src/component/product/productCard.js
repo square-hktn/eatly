@@ -11,7 +11,6 @@ const ProductCard = (props) => {
   const [cart, addToCart] = useState([]);
 
   useEffect(() => {
-    // setTotal
     let userCart = localStorage.getItem('userCart');
     if(userCart) {
       userCart = JSON.parse(userCart);
@@ -99,7 +98,8 @@ const ProductCard = (props) => {
           cost: productData.cost,
           restaurantName: productData.restaurantName,
           url: productData.url,
-          qty: 1
+          qty: 1,
+          id: productData._id
         }
       ];
       addToCart(cartData);
