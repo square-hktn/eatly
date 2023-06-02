@@ -1,43 +1,33 @@
-import React from "react";
 import { useEffect, useState } from "react";
-//import axios from 'axios'
+import styles from "./Profile.module.scss";
+
 function ProfileHeader() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [initials, setInitials] = useState("JD");
+  const [initials, setInitials] = useState("");
+  const role = localStorage.getItem("role");
+  const fullname = localStorage.getItem("name");
+  const replacename = fullname.replace(",", " ");
+  const name = replacename;
+  const splitname = replacename.split(" ");
+  const names = splitname;
+  let firstNameInitial = "";
+  let secondNameInitial = "";
 
-  // useEffect(()=>{
-  //  const prom=new Promise((resolve,reject)=>{
-  // axios.get("http://localhost:3000").then((response)=>{
-  //   if(response.data.status=="success"){
-  //   const user=response.data.user
-  //  const first=user.name.split(" ")[0].toUpperCase()
-  //  const last=user.name.split(" ")[1].toUpperCase()
-  // setInitials(first.substring(0,1)+""+last.substring(0,1))
-  //  resolve()
-  // }
-  // })
-  //})
+  //console.log(splitname);
 
-  // prom.then(()=>{
-  //setIsLoading(false)
-  // })
+  if (names.length > 0) firstNameInitial = names[0].charAt(0).toUpperCase(); // Get the first character of the first name
 
-  // },[])
+  if (names.length > 1) secondNameInitial = names[1].charAt(0).toUpperCase(); // Get the first character of the second name
+
+  useEffect(() => {
+    setInitials(firstNameInitial + " " + secondNameInitial);
+  }, [firstNameInitial, secondNameInitial]);
 
   return (
-    <div class="profile-header-container w-full">
-      <div class="flex p-3 ">
-        <div class=" w-1/2 align-center overflow-hidden ">
-          <div class="profile-header-user-container ">
-            <p class="mt-10 text-white text-6xl font-bold text-center">
-              {initials}
-            </p>
-          </div>
-        </div>
-        <div class=" w-4/10 justify-center align-start ml-2 p-6 overflow-hidden ">
-          <p class=" font-semibold text-2xl mb-2">Jane Doe</p>
-          <p class="text-lg text-gray-500 ">Customer</p>
-        </div>
+    <div className={styles.header_profile_container}>
+      <div className={styles.header_image}>{initials}</div>
+      <div className={styles.profile_headerLeft}>
+        <h1 className={styles.bigTitle}>{name}</h1>
+        <h2 className={styles.name}>{role}</h2>
       </div>
     </div>
   );

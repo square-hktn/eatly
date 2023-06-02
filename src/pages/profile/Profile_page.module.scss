@@ -1,0 +1,147 @@
+.profile_Container {
+  margin: 0;
+  display: flex;
+  width: 100%;
+  .sidebar_container {
+    margin: 0;
+    padding: 0;
+    width: 9%;
+  }
+
+  .profile_body {
+    margin: 0;
+    padding: 1rem 2rem;
+    width: 84.5%;
+    height: 100%;
+    margin-left: 1%;
+
+    .profile_header {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      margin-top: 1.5rem;
+      align-items: center;
+      .profile_header_left {
+        margin: 0;
+        .header_title {
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 36px;
+          line-height: 40px;
+          letter-spacing: 0.02em;
+          color: #1a1817;
+          margin: 0;
+        }
+        .header_date {
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 30px;
+          color: #1a1817;
+          margin: 0;
+          margin-top: 0.75rem;
+        }
+      }
+
+      .headerRight {
+        margin: 0;
+        input {
+          box-sizing: border-box;
+          /* Auto layout */
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 8px 16px;
+          gap: 8px;
+          height: 44px;
+          background: #ffffff;
+          border: 1px solid #989795;
+          border-radius: 24px;
+          font-family: "Poppins";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 30px;
+          /* identical to box height, or 28px */
+          letter-spacing: 0.02em;
+          color: #989795;
+        }
+      }
+    }
+
+    .profile_innerBody {
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 1.5rem;
+      gap: 2rem;
+      
+      padding-top: 1rem;
+      .innerBodyLeft {
+        background: #fff5ee;
+        margin: 0;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 20px;
+      }
+      .innerBodyRight {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  .cartSection {
+    height: 100%;
+    width: 6.5%;
+    border-radius: 0 25px 25px 0;
+    background: #fff5ee;
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cartHinge {
+    width: 8%;
+    margin-left: 15px;
+  }
+
+  .cartSectionImages {
+    height: 40px;
+    width: 40px;
+    margin: auto;
+  }
+
+  .cartIconAssets {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-top: 60px;
+    cursor: pointer;
+    position: relative;
+  }
+  .cartCounter {
+    height: 30px;
+    width: 30px;
+    background: #2a160c;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 25px;
+    top: 10px;
+  }
+  .totalCartItemCount {
+    color: white;
+    text-align: center;
+  }
+}
