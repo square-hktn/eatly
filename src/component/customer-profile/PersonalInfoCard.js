@@ -1,85 +1,151 @@
-import React from 'react'
-import {useState,useEffect} from 'react'
-import axios from 'axios'
+import { useState, useEffect } from "react";
+import styles from "./Profile.module.scss";
+import { axiosInstance } from "../../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { baseUrl } from "../../config.js";
+
 function PersonalInfoCard() {
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    city: "Lagos",
+  });
+  const [isSaving, setIsSaving] = useState(false);
 
-  const[male,setMale]=useState(false)
-  const [female,setFemale]=useState(false)
-  const[firstname,setFirstname]=useState("Taye")
-  const[lastname,setLastname]=useState("Kehinde")
-  const[email,setEmail]=useState("test@test.com")
-  const[phone,setPhone]=useState('070330033003300')
-  const [location,setLocation]=useState("Lagos")
-  const[isLoading,setIsLoading]=useState(false)
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    axiosInstance
+      .get(`${baseUrl}/user/${userId}`)
+      .then((response) => {
+        let userData = response.data.data;
+        let name = userData.name.split(" ");
+        let role = userData.role;
+        // save data in LC
+        localStorage.setItem("name", name);
+        localStorage.setItem("role", role);
+        const firstName = name[0];
+        const lastName = name[1];
+        userData.firstName = firstName;
+        userData.lastName = lastName;
+        setUser(userData);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
+  }, []);
 
-  useEffect(()=>{
-    
-  },[]);
+  const handleInputChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSaving(true);
+    const userId = localStorage.getItem("userId");
+    const { phoneNumber, city } = user;
+    const updatedUser = { phoneNumber, city };
+    console.log(updatedUser);
+    axiosInstance
+      .patch(`${baseUrl}/user/`, updatedUser)
+      .then((response) => {
+        toast.success("user updated successfully");
+        setIsSaving(false);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+        console.log(err);
+        setIsSaving(false);
+      });
+  };
 
   return (
-    <div class="personal-info-container mb-15">
-      <p class="text-[#99592A] text-2xl font-semibold">Personal Information</p>
-      <p class="text-gray-400 text-sm">Edit the information if required</p>
-      <div class="flex w-full justify-between mt-10 mb-5">
-  
+    <>
+      <ToastContainer />
+      <div>
+        <h1 className={styles.title}>Personal Information</h1>
+        <p className={styles.subtitle}>Edit the information if required</p>
+        <form onSubmit={handleSubmit}>
 
+
+          {/* First name and last name input fields */}
+          <div className={styles.group}>
+            <div>
+              <label className={styles.label_field}>First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                onChange={handleInputChange}
+                className={styles.input_field}
+                defaultValue={user.firstName}
+                readOnly
+              />
+            </div>
+            <div>
+              <label className={styles.label_field}>Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                className={styles.input_field}
+                defaultValue={user.lastName}
+                readOnly
+              />
+            </div>
+          </div>
+          {/* Email input field */}
+          <div className={styles.box}>
+            <label className={styles.label_field}>Email</label>
+            <input
+              type="email"
+              className={styles.input_fieldLong}
+              defaultValue={user.email}
+              readOnly
+            />
+          </div>
+          {/* Phone number input field */}
+          <div className={styles.box}>
+            <label className={styles.label_field}>Phone Number</label>
+            <input
+              type="number"
+              name="phoneNumber"
+              className={styles.input_fieldLong}
+              defaultValue={user.phoneNumber}
+              //   value={formValues.phoneNumber}
+              onChange={handleInputChange}
+            />
+          </div>
+          {/* Location input field */}
+          <div className={styles.box}>
+            <label className={styles.label_field}>Location</label>
+            <input
+              type="text"
+              name="city"
+              className={styles.input_fieldLong}
+              //  value={formValues.city}
+              defaultValue={user.city}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className={styles.btn_container}>
+            <button
+              type="submit"
+              className={`${styles.btn} ${
+                isSaving ? styles.btn : styles.disabled
+              }`}
+              disabled={isSaving}
+            >
+              {isSaving ? "Saving ..." : "Save Changes"}
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="flex w-full  justify-between pt-5  ">
-        <div class="flex flex-col w-1/2 mr-2">
-          <p class="mb-2 text-gray-500">First Name</p>
-          <input  class="address-modal-input-small " disabled required="" placeholder={firstname} onChange={(e)=>{
-           }}/>
-        </div>
-        <div class="flex flex-col w-1/2 ">
-          <p class="pb-2 text-gray-500">Last Name</p>
-          <input  class="address-modal-input-small" disabled placeholder={lastname} required="" onChange={(e)=>{
-          }}/>
-        </div>
-    </div> 
-    <div class="flex flex-col w-full mt-3">
-        <p class="mb-3 text-gray-500">Email</p>
-        <input   class="personal-info-input " required="" disabled placeholder={email} onChange={(e)=>{
-           setEmail(e.target.value)}}/>
-     </div>
-     <div class="flex flex-col w-full mt-3">
-        <p class="mb-3 text-gray-500">Phone Number</p>
-        <input   class="personal-info-input " required=""type="tel"placeholder={phone} onChange={(e)=>{
-           setPhone(e.target.value)}}/>
-     </div>
-     <div class="flex flex-col w-full mt-3">
-        <p class="mb-3 text-gray-500">Location</p>
-        <input   class="personal-info-input " required="" placeholder={location} onChange={(e)=>{
-           setLocation(e.target.value)}}/>
-     </div>
-     <div class="flex  w-full mt-12 justify-center pb-5">
-        <button class="bg-gray-400 w-1/2 p-2 very-round " onClick={()=>{
-          const prom=new Promise((resolve,reject)=>{
-              if( firstname==null || lastname==null || phone==null || email==null || location==null ||(male==false && female==false)){
-                alert("PLease fill out all fields!")
-              }else{
-                axios.post("http://localhost:3000",{user:{firstname:firstname,lastname:lastname,email:email,phone:phone,location:location,gender:(female==true? "female":"male")}}).then((response)=>{
-                  if(response.data.status=="success"){
-                    alert("Thank you for updating your details")
-                    resolve()
-                  }else{
-                    alert("There was an issue updating your details")
-                  }
-                  
-                })
-              }
-          })
-
-          prom.then(()=>{
-
-          })
-        }}  >
-          <p class="text-white font-semibold">
-            Save Changes
-          </p>
-        </button>
-     </div>
-   </div>
-  )
+    </>
+  );
 }
 
-export default PersonalInfoCard
+export default PersonalInfoCard;

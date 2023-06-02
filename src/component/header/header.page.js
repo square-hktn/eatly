@@ -31,7 +31,7 @@ const Header = () => {
         <div className={styles.headerText}>
           <h2>Home</h2>
           <span>
-            {day}th of {month} {year}
+            {day} {month} {year}
           </span>
         </div>
         <div className={styles.inputSection}>

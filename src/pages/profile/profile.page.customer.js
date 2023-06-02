@@ -1,52 +1,144 @@
-import React from 'react'
-import PageSearch from '../../component/PageSearch'
-import MostOrderedCard from '../../component/customer-profile/MostOrderedCard'
-import PersonalInfoCard from '../../component/customer-profile/PersonalInfoCard'
-import ProfileHeader from '../../component/customer-profile/ProfileHeader'
-import Sidebar from '../../component/sidebar'
-const CustomerProfile=()=> {
+import { useState, useEffect } from "react";
+import styles from "./Profile_page.module.scss";
 
+import cartIcon from "../../assets/cart-icon.svg";
+import locationIcon from "../../assets/Location.svg";
+import SquarePayment from "../../component/square_payment/SquarePayment";
+import AddressModal from "../../component/addressModal/AddressModal";
+import ConfirmationModal from "../../component/confirmationModal/ConfirmationModal";
+
+//components of the profile
+import MostOrderedCard from "../../component/customer-profile/MostOrderedCard";
+import PersonalInfoCard from "../../component/customer-profile/PersonalInfoCard";
+import ProfileHeader from "../../component/customer-profile/ProfileHeader";
+import Sidebar from "../../component/sidebar";
+const CustomerProfile = () => {
+  const [show, setShow] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [itemTotal, setItemTotal] = useState(0);
+  const [address, setAddress] = useState({
+    street: "",
+    city: "",
+    state: "",
+    zipCode: "",
+  });
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const dateObj = new Date();
+      setCurrentDate(dateObj);
+
+      const day = dateObj.getDate();
+      const month = dateObj.toLocaleString("default", { month: "long" }); // Get month in full alphabet format
+      const year = dateObj.getFullYear();
+
+      setDay(day);
+      setMonth(month);
+      setYear(year);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  let itemCount = 0;
+
+  const userCart = localStorage.getItem("userCart");
+  if (userCart) {
+    const cartData = JSON.parse(userCart);
+    const qty = cartData.reduce((prev, curr) => prev + curr.qty, 0);
+    itemCount = qty;
+  }
+
+  const showModal = () => {
+    setShow(!show);
+  };
+
+  const handleConfirmation = () => {
+    setShowConfirmation(!showConfirmation);
+  };
 
   return (
-    <div class="flex w-full mt-0">
-      <Sidebar class="ml-0"/>
-     <div class="flex">
-     
-      <div class="flex  w-11/12 pt-5 ">
-      
-      <div class="flex flex-col w-full">
-        <div class="flex w-full mb-15 p-5 justify-between">
-          <div class="flex w-1/2">
-            <div class="flex flex-col ml-3">
-               <p class="text-2xl font-bold ">
-                Profile
-              </p>
-              <p class="text-md font-semibold ">Thursday, 20 May 2023</p>
-            </div>
-          </div>
-          <div class="flex w-1/2 justify-end ">
-            <div class="flex w-1/2"></div>
-             <PageSearch/>
-          </div>
-        </div>
-        <div class="flex  h-4/5 ml-0 p-5">
-          <div class="flex w-1/2 m-3 align-start h-full">
-            <PersonalInfoCard/>
-          </div>
-           <div class="flex-col w-1/2 ml-3 gap-x-3 mt-2 h-full">
-              <div class="flex h-1/3 mb-3">
-                <ProfileHeader/>
-               </div>
-            <div class="flex h-2/3  ">
-              <MostOrderedCard/>
-            </div>
-        </div>
-       </div>
-       </div>
+    <div className={styles.profile_Container}>
+      <div className={styles.sidebar_container}>
+        <Sidebar />
       </div>
-      </div>
-    </div>
-  )
-}
+      <div className={styles.profile_body}>
+        <div className={styles.profile_header}>
+          <div className={styles.profile_header_left}>
+            <h1 className={styles.header_title}>profile</h1>
+            <h2 className={styles.header_date}>
+              {day} {month} {year}
+            </h2>
+          </div>
 
-export default CustomerProfile
+          <div className={styles.headerRight}>
+            <input type="text" placeholder="Search for a dish, feature..." />
+          </div>
+        </div>
+        <div className={styles.profile_innerBody}>
+          <div className={styles.innerBodyLeft}>
+            <PersonalInfoCard />
+          </div>
+          <div className={styles.innerBodyRight}>
+            <div>
+              <ProfileHeader />
+            </div>
+            <div>
+              <MostOrderedCard />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.cartSection}>
+        <div className={styles.cartIconAssets}>
+          <div className={styles.cartCounterSection}>
+            <div className={styles.cartCounter}>
+              <h1 className={styles.totalCartItemCount}>{itemCount}</h1>
+            </div>
+            <img
+              src={cartIcon}
+              alt="cartIcon"
+              className={styles.cartSectionImages}
+              onClick={handleConfirmation}
+            />
+          </div>
+          <img
+            src={locationIcon}
+            alt="locationIcon"
+            className={styles.cartSectionImages}
+            onClick={showModal}
+          />
+        </div>
+      </div>
+
+      {show && (
+        <AddressModal
+          setShow={setShow}
+          setAddress={setAddress}
+          setShowPaymentModal={setShowPaymentModal}
+        />
+      )}
+      {showPaymentModal && (
+        <SquarePayment
+          address={address}
+          setShowPaymentModal={setShowPaymentModal}
+        />
+      )}
+      {showConfirmation && (
+        <ConfirmationModal
+          setShow={setShowConfirmation}
+          setShowAddress={setShow}
+        />
+      )}
+    </div>
+  );
+};
+
+export default CustomerProfile;
