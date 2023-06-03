@@ -1,0 +1,152 @@
+.orderContainer {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  border-radius: 25px;
+}
+
+.orderSidebarHinge {
+  height: 100%;
+}
+.orderDetailContent {
+  width: 83%;
+}
+.orderList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: unset;
+  margin-top: 3%;
+  margin-left: 2%;
+}
+.singleOrderWrapper {
+  height: 10%;
+  width: 80%;
+  background: #FFF5EE;
+  margin: unset;
+  border-radius: 20px;
+  margin-bottom: 3%;
+}
+.orderStructure {
+  height: 50%;
+  margin: auto;
+  width: 95%;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+}
+.actionButton {
+  width: 150px;
+  color: white;
+  float: right;
+  height: 50px;
+  border-radius: 25px;
+  background: #E43A3A;
+  margin: 2% 0;
+  margin-left: 70%;
+}
+.statusIcon {
+  width: 10%;
+  margin: unset;
+}
+.orderDesc {
+  width: 75%;
+  margin: unset;
+  display: flex;
+  flex-flow: column;
+}
+.circleIcon {
+  height: 45%;
+  width: 65%;
+  margin: auto;
+  border-radius: 50%;
+  margin-top: 25%;
+  background: #FFB572;
+  display: flex;
+}
+.pendingIcon {
+  width: 50%;
+  height: 50%;
+}
+.headerText {
+  margin: unset;
+  margin-top: 3%;
+  margin-left: 2%;
+  color: #99592A;
+}
+.headerStatus {
+  color: #989795;
+  margin-left: 2%;
+}
+.detailIcon {
+  display: flex;
+  flex-direction: row;
+  margin: unset;
+  margin-left: 2%;
+  margin-top: 4%;
+  cursor: pointer;
+  width: 18%;
+}
+.detailsText {
+  color: #1A1817;
+}
+.downArrowStyle, .upArrowStyle {
+  margin: unset;
+  margin-left: 2%;
+}
+.upArrowStyle {
+  transform: rotate(180deg);
+}
+p {
+  color: #989795;
+  margin: unset;
+  margin-top: 2%;
+}
+.detailsContainer {
+  background: #FFF5EE;
+  margin: unset;
+  margin-top: 1%;
+}
+.detailItemMap{
+  height: 80px;
+  width: 95%;
+  margin: unset;
+  display: flex;
+  flex-direction: row;
+}
+.btnOrderSection {
+  display: flex;
+  flex-direction: column;
+  margin: unset;
+  background: inherit;
+  padding-left: 12%;
+  border-radius: 20px;
+}
+.orderImageSection {
+  width: 15%;
+  height: 100%;
+  margin: unset;
+}
+.orderDetailsDescription{
+  width: 80%;
+  height: 70%;
+  margin: unset;
+}
+.orderItemImage {
+  height: 70%;
+  width: 50%;
+  border-radius: 50%;
+  margin-top: 10%;
+}
+.orderDetailsDescriptionText{
+  line-height: 20.8px;
+  font-weight: 300;
+  font-size: 18px;
+  margin: unset;
+  margin-top: 2%;
+}
+.orderQtys {
+  margin-top: 3%;
+}

@@ -2,7 +2,7 @@ import { useEffect, useState, Fragment } from "react";
 import styles from "./header.module.scss";
 import searchIcon from "../../assets/Search.svg";
 
-const Header = () => {
+const Header = (props) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
@@ -29,7 +29,7 @@ const Header = () => {
     <Fragment>
       <div className={styles.headerWrapper}>
         <div className={styles.headerText}>
-          <h2>Home</h2>
+          <h2>{props.page ? props.page : "Home"}</h2>
           <span>
             {day} {month} {year}
           </span>
