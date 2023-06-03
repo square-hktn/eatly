@@ -43,8 +43,11 @@ const MyPaymentForm = (props) => {
         return {
           id: v.id,
           qty: v.qty,
+          name: v.name,
           sumTotal: ((v.cost * v.qty) % 1 === 0) ? (v.cost * v.qty) + .5 : (v.cost * v.qty).toFixed(2),
           unitCost: v.cost,
+          url: v.url,
+          restaurantName: v.restaurantName
         }
       }),
       totalCost: props.subTotal
@@ -58,6 +61,8 @@ const MyPaymentForm = (props) => {
       toast.success("Payment successful");
       setIsLoading(false);
       props.setShowPaymentModal(false);
+      localStorage.removeItem('userCart');
+
       // Handle successful tokenization
       // You can make an API call to your server to process the payment using the token
     } catch (error) {

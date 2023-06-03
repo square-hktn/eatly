@@ -7,14 +7,30 @@ import cart from "../assets/cart.svg";
 import profile from "../assets/profile.svg";
 import { Link, useHistory } from "react-router-dom";
 import { handleLogout } from "../api";
+import homeInactive from '../assets/home-inactive.svg';
+import cartInactive from '../assets/cart-inactive.svg';
 
 const Sidebar = (props) => {
-  const [activeIcon, setActiveIcon] = useState("home");
+  const [activeIcon, setActiveIcon] = useState(props.active ?? "home");
   const navigate = useHistory();
 
   const handleProfile = () => {
     setActiveIcon("profile")
     navigate.push("/customer-profile");
+  };
+
+  const handleHome = () => {
+    if(activeIcon !== "home") {
+      setActiveIcon("home");
+      navigate.push("/dashboard");
+    }
+  };
+
+  const handleOrders = () => {
+    if(activeIcon !== "cart") {
+      setActiveIcon("cart");
+      navigate.push("/orders");
+    }
   };
 
   const handleUserLogout = () => {
@@ -36,23 +52,9 @@ const Sidebar = (props) => {
               ? "sidebar_logo_circle_active"
               : "sidebar_logo_circle"
           }
-          onClick={() => setActiveIcon("home")}
+          onClick={handleHome}
         >
-          <img className="sidebar_logo_image" alt="eatlyLogo" src={home} />
-        </div>
-        <div
-          className={
-            activeIcon === "notification"
-              ? "sidebar_logo_circle_active"
-              : "sidebar_logo_circle"
-          }
-          onClick={() => setActiveIcon("notification")}
-        >
-          <img
-            className="sidebar_logo_image"
-            alt="eatlyLogo"
-            src={notification}
-          />
+          <img className="sidebar_logo_image" alt="eatlyLogo" src={(activeIcon === "home") ? home : homeInactive} />
         </div>
         <div
           className={
@@ -66,7 +68,6 @@ const Sidebar = (props) => {
             className="sidebar_logo_image"
             alt="eatlyLogo"
             src={profile}
-
           />
         </div>
         <div
@@ -75,9 +76,9 @@ const Sidebar = (props) => {
               ? "sidebar_logo_circle_active"
               : "sidebar_logo_circle"
           }
-          onClick={() => setActiveIcon("cart")}
+          onClick={handleOrders}
         >
-          <img className="sidebar_logo_image" alt="eatlyLogo" src={cart} />
+          <img className="sidebar_logo_image" alt="eatlyLogo" src={(activeIcon === "cart") ? cartInactive : cart} />
         </div>
       </div>
       <img className="sidebar_logo_image_logout" alt="eatlyLogo" onClick={handleUserLogout} src={logout} />
