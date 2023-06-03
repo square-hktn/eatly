@@ -5,11 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { CreditCard, PaymentForm } from "react-square-web-payments-sdk";
 import { axiosInstance } from "../../api";
 import { squareApplicationId, squareLocationId, baseUrl } from "../../config";
+import { useHistory } from "react-router-dom";
 
 const MyPaymentForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [familyName, setFamilyName] = useState('');
   const [givenName, setGivenName] = useState('');
+  const navigate = useHistory();
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
@@ -20,6 +22,7 @@ const MyPaymentForm = (props) => {
         setGivenName(name.split[0]);
       })
       .catch((err) => {
+        console.log(err, )
         toast.error("User query failed");
         props.setShowPaymentModal(false);
       })
@@ -62,6 +65,7 @@ const MyPaymentForm = (props) => {
       setIsLoading(false);
       props.setShowPaymentModal(false);
       localStorage.removeItem('userCart');
+      navigate.push("/orders");
 
       // Handle successful tokenization
       // You can make an API call to your server to process the payment using the token
