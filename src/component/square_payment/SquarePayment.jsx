@@ -64,7 +64,10 @@ const MyPaymentForm = (props) => {
       console.log("success")
       props.setShowPaymentModal(false);
       localStorage.removeItem("userCart");
-      navigate.push("/orders");
+      setTimeout(() => {
+                navigate.push("/orders");
+              }, 2000);
+      
 
       // Handle successful tokenization
       // You can make an API call to your server to process the payment using the token
