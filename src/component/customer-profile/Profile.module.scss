@@ -90,11 +90,11 @@
     transform: scale(0.98);
   }
 }
-  .disabled {
-    background: #989795;
-    outline: none;
-    transform: scale(0.98);
-  }
+.disabled {
+  background: #989795;
+  outline: none;
+  transform: scale(0.98);
+}
 .input_fieldLong {
   box-sizing: border-box;
   display: flex;
@@ -173,4 +173,23 @@
   font-weight: 400;
   font-size: 20px;
   margin: 0;
+}
+
+//orders
+.order_title {
+  color: rgba(153, 89, 42, 1);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0px;
+  text-transform: capitalize;
+}
+.order_subtitle {
+  color: rgba(152, 151, 149, 1);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0px;
 }

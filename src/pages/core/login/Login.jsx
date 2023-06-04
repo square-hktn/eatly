@@ -12,15 +12,16 @@ const Login = (props) => {
     password: "",
   });
   const [touched, setTouched] = useState({});
-  //error
   const [formError, setFormError] = useState({});
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Button disabled state
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
+  //user role
+  const userRole = localStorage.getItem("userRole");
   const { search } = useLocation();
-  const role = search?.split("?")[1];
+  //const role = search?.split("?")[1];
+  const role = new URLSearchParams(search).get("role"); // Retrieve role from URL parameter
   let history = useHistory();
-
   const validate = (values) => {
     const errors = {};
     const regex =
@@ -39,10 +40,10 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    const errors = validate(formValues); 
-    setFormError(errors); 
-    setIsButtonDisabled(Object.keys(errors).length > 0); 
-  }, [formValues]); 
+    const errors = validate(formValues);
+    setFormError(errors);
+    setIsButtonDisabled(Object.keys(errors).length > 0);
+  }, [formValues]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,7 +60,6 @@ const Login = (props) => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    // console.log(formValues);
 
     if (Object.keys(formError).length > 0) {
       setTouched({
@@ -92,7 +92,6 @@ const Login = (props) => {
           const token = data.data.token;
           const userId = data.data.userId;
 
-          // save data in LC
           localStorage.setItem("token", token);
           localStorage.setItem("userId", userId);
 
@@ -101,26 +100,40 @@ const Login = (props) => {
             setFormValues({});
             setFormError({});
             e.target.reset();
-            setTimeout(() => {
-              history.push("/dashboard");
-            }, 2000);
+
+            if (userRole === "merchant") {
+              setTimeout(() => {
+                history.push("/merchant-dashboard");
+              }, 2000);
+            } else {
+              setTimeout(() => {
+                history.push("/dashboard");
+              }, 2000);
+            }
           } else {
             toast.error(data.message || data.json.details[0].message);
           }
         })
         .catch((error) => console.log(error))
         .finally(() => {
-          setIsLoading(false); // Stop loading state
+          setIsLoading(false);
         });
     }
   };
 
-  if (role !== "merchant" && role !== "customer") {
-    toast.warning("invalid role");
-    setTimeout(() => {
-      return history.push(`/`);
-    }, 2000);
-  }
+  useEffect(() => {
+    if (role !== "merchant" && role !== "customer") {
+      toast.warning("Invalid role");
+      setTimeout(() => {
+        history.push("/");
+      }, 2000);
+    }
+  }, [role, history]);
+
+  const homelink = () => {
+    history.push("/");
+  };
+
   return (
     <>
       <ToastContainer />
@@ -128,7 +141,7 @@ const Login = (props) => {
         <div className={styles.big_container}>
           <div className={styles.left_container}>
             <div className={styles.logo_container}>
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" onClick={homelink} />
             </div>
             <h1 className={styles.title}>Sign In</h1>
             <form className={styles.form} onSubmit={handlesubmit}>
@@ -177,10 +190,7 @@ const Login = (props) => {
                       role="status"
                       className="h-8 w-8"
                     >
-                      <svg
-                        className=" animate-spin h-6 w-6"
-                        viewBox="3 3 18 18"
-                      >
+                      <svg className="animate-spin h-6 w-6" viewBox="3 3 18 18">
                         <path
                           className="fill-slate-100"
                           d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
@@ -200,17 +210,22 @@ const Login = (props) => {
 
             <h3 className={styles.subtext}>
               Don't have an account?{" "}
-              <Link to="/signup" className={styles.link}>
+              <Link to={`/signup?role=${role}`} className={styles.link}>
                 Click here to sign up
               </Link>
             </h3>
           </div>
           <div className={styles.right_container}>
-            <img src={login_image} alt="login_image" className={styles.image} />
+            <img
+              src={login_image}
+              alt="login_image"
+              className={styles.login_image}
+            />
           </div>
         </div>
       </section>
     </>
   );
 };
+
 export default Login;

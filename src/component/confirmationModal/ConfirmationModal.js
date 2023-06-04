@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+//import React, { useState } from 'react'
 import styles from './confirmation.module.scss'
 import ItemCard from './itemCard'
 

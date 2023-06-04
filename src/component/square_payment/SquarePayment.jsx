@@ -8,31 +8,30 @@ import { squareApplicationId, squareLocationId, baseUrl } from "../../config";
 import { useHistory } from "react-router-dom";
 
 const MyPaymentForm = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [familyName, setFamilyName] = useState('');
-  const [givenName, setGivenName] = useState('');
+  const [familyName, setFamilyName] = useState("");
+  const [givenName, setGivenName] = useState("");
   const navigate = useHistory();
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
-    axiosInstance.get(`${baseUrl}/user/${userId}`)
+    const userId = localStorage.getItem("userId");
+    axiosInstance
+      .get(`${baseUrl}/user/${userId}`)
       .then((response) => {
         const name = response.data.data.name;
         setFamilyName(name.split[1]);
         setGivenName(name.split[0]);
       })
       .catch((err) => {
-        console.log(err, )
+        console.log(err);
         toast.error("User query failed");
         props.setShowPaymentModal(false);
-      })
+      });
   }, []);
 
   const handleCardTokenizeResponse = async (token, buyer) => {
-    setIsLoading(true);
-    const userCart = localStorage.getItem('userCart');
+    const userCart = localStorage.getItem("userCart");
     let cartData = [];
-    if(userCart) {
+    if (userCart) {
       cartData = JSON.parse(userCart);
     }
 
@@ -47,34 +46,33 @@ const MyPaymentForm = (props) => {
           id: v.id,
           qty: v.qty,
           name: v.name,
-          sumTotal: ((v.cost * v.qty) % 1 === 0) ? (v.cost * v.qty) + .5 : (v.cost * v.qty).toFixed(2),
+          sumTotal:
+            (v.cost * v.qty) % 1 === 0
+              ? v.cost * v.qty + 0.5
+              : (v.cost * v.qty).toFixed(2),
           unitCost: v.cost,
           url: v.url,
-          restaurantName: v.restaurantName
-        }
+          restaurantName: v.restaurantName,
+        };
       }),
-      totalCost: props.subTotal
+      totalCost: props.subTotal,
     };
 
     try {
-      await axiosInstance.post(
-        `${baseUrl}/order`,
-        body
-      );
+      await axiosInstance.post(`${baseUrl}/order`, body);
       toast.success("Payment successful");
-      setIsLoading(false);
+      console.log("success")
       props.setShowPaymentModal(false);
-      localStorage.removeItem('userCart');
+      localStorage.removeItem("userCart");
       navigate.push("/orders");
 
       // Handle successful tokenization
       // You can make an API call to your server to process the payment using the token
     } catch (error) {
+      console.log(error)
       toast.error("Try again");
       // Handle tokenization error
       // Display an error message to the user or take appropriate action
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -98,20 +96,6 @@ const MyPaymentForm = (props) => {
               x
             </button>
           </div>
-          {isLoading && (
-            <div aria-label="Loading..." role="status" className="h-12 w-12">
-              <svg className=" animate-spin h-10 w-10" viewBox="3 3 18 18">
-                <path
-                  className="fill-slate-100"
-                  d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
-                ></path>
-                <path
-                  className="fill-slate-300"
-                  d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
-                ></path>
-              </svg>
-            </div>
-          )}
           {/* Render the spinner animation */}
           <PaymentForm
             applicationId={squareApplicationId}
