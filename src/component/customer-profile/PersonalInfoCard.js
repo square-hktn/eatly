@@ -47,7 +47,7 @@ function PersonalInfoCard() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSaving(true);
-    const userId = localStorage.getItem("userId");
+    
     const { phoneNumber, city } = user;
     const updatedUser = { phoneNumber, city };
     console.log(updatedUser);

@@ -4,10 +4,12 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Signup.scss";
 import logo from "../../../assets/logo_eatly1.svg";
 import login_image from "../../../assets/Group 34515.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 const Signup = (props) => {
   const navigate = useHistory();
-
+  const { search } = useLocation();
+  // const role = search?.split("?")[1];
+  const role = new URLSearchParams(search).get("role"); // Retrieve role from URL parameter
   const [formValues, setFormValues] = useState({
     first_name: "",
     last_name: "",
@@ -139,9 +141,17 @@ const Signup = (props) => {
             setFormValues({});
             setFormError({});
             e.target.reset();
-            setTimeout(() => {
-              navigate.push("/dashboard");
-            }, 2000);
+              // Store the role value in local storage
+      localStorage.setItem("userRole", formValues.role);
+            if (formValues.role === "merchant") {
+              setTimeout(() => {
+                navigate.push("/merchant-dashboard");
+              }, 2000);
+            } else {
+              setTimeout(() => {
+                navigate.push("/dashboard");
+              }, 2000);
+            }
           } else {
             toast.error(data.message || data.json.details[0].message);
           }
@@ -150,6 +160,18 @@ const Signup = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (role !== "merchant" && role !== "customer") {
+      toast.warning("Invalid role");
+      setTimeout(() => {
+        navigate.push("/");
+      }, 2000);
+    }
+  }, [role, navigate]);
+
+  const homelink = () => {
+    navigate.push("/");
+  };
   return (
     <>
       <ToastContainer />
@@ -157,7 +179,7 @@ const Signup = (props) => {
         <div className="big_container">
           <div className="left_container">
             <div className="logo_container">
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" onClick={homelink} />
             </div>
             {formValues.role === "merchant" ? (
               <h1 className="title">Merchant Sign Up</h1>
@@ -340,7 +362,7 @@ const Signup = (props) => {
 
             <h3 className="subtext">
               Already have an Account{" "}
-              <Link to="/signin" className="link">
+              <Link to={`/signin?role=${role}`} className="link">
                 Sign In
               </Link>
             </h3>

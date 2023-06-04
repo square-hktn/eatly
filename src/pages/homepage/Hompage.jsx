@@ -5,13 +5,16 @@ import merchantImage from "../../assets/merchant_image.png";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-
 const Homepage = (props) => {
   const [selectedRole, setSelectedRole] = useState("customer");
   let history = useHistory();
 
   const handleRedirect = () => {
-    return history.push(`/signin?${selectedRole}`);
+    if (selectedRole === "customer" || selectedRole === "merchant") {
+      history.push(`/signin?role=${selectedRole}`);
+    } else {
+      console.log("Invalid role");
+    }
   };
 
   const isButtonDisabled = selectedRole === "";

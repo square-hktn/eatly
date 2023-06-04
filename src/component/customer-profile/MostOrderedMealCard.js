@@ -1,18 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import MostOrderedMealCard from "./MostOrderedMealCard";
+import Styles from "./Profile.module.scss";
+import { baseUrl } from "../../config";
+import { axiosInstance } from "../../api";
 
-function MostOrderedMealCard() {
+const MostOrderedCard = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    if (orders.length === 0) {
+      axiosInstance
+        .get(`${baseUrl}/order`)
+        .then((res) => {
+          const response = res.data.data;
+          setOrders(response);
+        })
+        .catch((e) => {
+          console.log(e, "ERROR");
+        });
+    }
+  }, [orders]);
+
   return (
-    <div class="flex w-full">
-      <div class="flex w-1/6 mb-5">
-        <img src={require("../../assets/Image6.png")} alt="dish"/>
-      </div>
-      <div class="ml-5 flex flex-col w-full">
-        <p class="text-md font-semibold">Spicy seasoned seafood noodles</p>
-        <p class="text-gray-400 text-sm">6 times ordered</p>
-
+    <div>
+      <h1 className={Styles.order_title}>Most Ordered</h1>
+      <p className={Styles.order_subtitle}>List of your most ordered dishes</p>
+      <div>
+        {orders.length > 0 ? (
+          orders.map((info, key) => (
+            <MostOrderedMealCard key={key} info={info} />
+          ))
+        ) : (
+          <p>No orders</p>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MostOrderedMealCard
+export default MostOrderedCard;
