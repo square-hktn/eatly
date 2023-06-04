@@ -34,6 +34,7 @@ const Orders = () => {
             page="Orders"
           />
           <div className={styles.orderList}>
+          {orders.length === 0 ? (<h1>No order yet</h1> ) : ""}
             <SingleOrder
               orders={orders}
             />

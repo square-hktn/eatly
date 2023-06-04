@@ -185,6 +185,7 @@
   margin: 0px;
   text-transform: capitalize;
 }
+
 .order_subtitle {
   color: rgba(152, 151, 149, 1);
   font-family: "Poppins";
@@ -192,4 +193,37 @@
   font-weight: 400;
   font-size: 14px;
   margin: 0px;
+}
+
+.order_container {
+  padding-top: 1.5rem;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.img_Container {
+  width: 68.01px;
+  height: 68.01px;
+  margin: 0;
+  img {
+    border-radius: 50%;
+    object-fit: contain;
+  }
+}
+
+.meal_details {
+  width: 200px;
+  margin: 0;
+}
+
+.meal_title {
+  color: rgba(26, 24, 23, 1);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: capitalize;
 }
