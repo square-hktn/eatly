@@ -9,16 +9,6 @@ const SingleOrder = (props) => {
   const [showDetails, setShowDetails] = useState(false);
   const [activeId, setActiveId] = useState(null);
 
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
   const toggleDetailVisibility = (id) => {
     setShowDetails(!showDetails);
     setActiveId(id);
@@ -45,7 +35,6 @@ const SingleOrder = (props) => {
         orders.length > 0 &&
         orders.map((info, key) => (
           <div className={styles.singleOrderWrapper}>
-            {console.log(info, "infoinfoinfoinfo")}
             <div className={styles.orderStructure}>
               <div className={styles.statusIcon}>
                 <div className={styles.circleIcon}>
