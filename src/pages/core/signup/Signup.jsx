@@ -204,7 +204,7 @@ const Signup = (props) => {
                           : "300px",
                     }}
                   >
-                    <option value="">select an a role</option>
+                    <option value="">select a role</option>
 
                     <option value="user">Customer</option>
                     <option value="merchant">Merchant</option>
@@ -276,7 +276,7 @@ const Signup = (props) => {
                 </div>
 
                 <div>
-                  <label className="label_field">Phone No.</label>
+                  <label className="label_field">Phone No. (with country code)</label>
                   <input
                     type="number"
                     className="input_field"
