@@ -2,12 +2,19 @@ import styles from "./Homepage.module.scss";
 import logo from "../../assets/logo_eatly1.svg";
 import clientImage from "../../assets/client_image.png";
 import merchantImage from "../../assets/merchant_image.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Homepage = (props) => {
   const [selectedRole, setSelectedRole] = useState("customer");
   let history = useHistory();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(token) {
+      history.push(`/dashboard`);
+    }
+  })
 
   const handleRedirect = () => {
     if (selectedRole === "customer" || selectedRole === "merchant") {
