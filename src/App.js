@@ -21,17 +21,15 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/signin" component={LoginPage} />
+          <Route exact path="/signup" component={SignupPage} />
+
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
           <ProtectedRoute
             exact
             path="/merchant-dashboard"
             component={MerchantDashboard}
           />
-
-          <ProtectedRoute exact path="/signin" component={LoginPage} />
           <ProtectedRoute exact path="/orders" component={Orders} />
-          <ProtectedRoute exact path="/signup" component={SignupPage} />
-
           <ProtectedRoute
             exact
             path="/customer-profile"
